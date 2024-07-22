@@ -1,7 +1,12 @@
-const Home = (props) => {
-    return (
-        <h1>Home Page</h1>
-    )
-}
+import React from 'react';
+import './Home.css';
 
-export default Home
+const Home = () => {
+  return (
+    <div className="home">
+      <h1>Welcome to Spotify Music App</h1>
+    </div>
+  );
+};
+
+export default Home;
