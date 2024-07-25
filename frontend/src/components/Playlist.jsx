@@ -4,7 +4,9 @@ const Playlist = () => {
   return (
     <div className="playlist">
       {/* Display the list of playlists here */}
-      <h3>Playlists</h3>
+      <h3>Your Library</h3> <span> + (font awesome)</span>
+      .map over the playlist database and pass in the playlist library item
+      <PlayListLibraryItem/>
     </div>
   );
 };
