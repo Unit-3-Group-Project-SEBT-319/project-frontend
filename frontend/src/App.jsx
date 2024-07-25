@@ -1,17 +1,22 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Home from "./components/Home.jsx"
+import React from 'react';
+import '../App.css';
 
-function App() {
-
-
+const App = () => {
   return (
     <div>
-
-      <Home />
-
+      <header>
+        <h1>Music App</h1>
+      </header>
+      <Sidebar />
+      <main>
+        <Routes>
+          <Route path="/playlist/:id" element={<PlaylistShowPage />} />
+          <Route path="/category/:name" element={<Categories />} />
+          <Route path="/" element={<RecommendedSongs />} />
+        </Routes>
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

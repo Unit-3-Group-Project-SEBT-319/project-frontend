@@ -22,13 +22,12 @@ body {
   
   .nav li {
     margin-bottom: 10px;
+    cursor: pointer;
   }
   
   .content {
     flex: 1;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
   }
   
   .header {
@@ -43,26 +42,29 @@ body {
     align-items: center;
   }
   
+  .search input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
   .headline {
     font-size: 24px;
     font-weight: bold;
   }
   
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-  }
-  
   .recommended-songs {
-    flex: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-  }
-  
-  .recommended-songs h2 {
-    grid-column: span 3;
-    margin-top: 0;
   }
   
   .song {
@@ -74,21 +76,5 @@ body {
     align-items: center;
     font-size: 24px;
     color: green;
-  }
-  
-  .your-playlist {
-    flex: 1;
-    padding-left: 20px;
-  }
-  
-  .your-playlist h2 {
-    margin-top: 0;
-  }
-  
-  .playlist-item {
-    padding: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 10px;
-    border-radius: 5px;
   }
   
