@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SongDisplay = ({ song }) => {
+const SongItem = ({ song }) => {
   return (
     <div className="song-display">
       <h2>{song.name}</h2>
@@ -10,4 +10,4 @@ const SongDisplay = ({ song }) => {
   );
 };
 
-export default SongDisplay;
+export default SongItem;
