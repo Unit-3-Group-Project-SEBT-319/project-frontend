@@ -1,6 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 
-const PlaylistShowPage = ({ playlist, songs, onDelete }) => {
+
+const PlaylistShowPage = ({ playlistId }) => {
+  const [playlist, setPlaylist] = useState(null)
+  const [songs, setSongs] = useState([])
+
+  const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${playlistId}`
+  const URL_SONGS = `http://localhost:4000/audify/playlists/${playlistId}/songs`
+
+  useEffect(() => {
+    const fetchPlaylist = async () => {
+      try {
+        const response = await fetch(URL_PLAYLIST);
+        const data = await response.json();
+        setPlaylist(data);
+      } catch (error) {
+        console.error('Error fetching playlist:', error);
+      }
+    }
+
+    const fetchSongs = async () => {
+      try {
+        const response = await fetch(URL_SONGS)
+        const data = await response.json()
+        setSongs(data)
+      } catch (error) {
+        console.error('Error fetching songs:', error)
+      }
+    }
+
+    fetchPlaylist()
+    fetchSongs()
+  }, [playlistId])
+
+  // Delete Song from Playlist
+  const deleteSongPlaylist = async (songId) => {
+    try {
+      const response = await fetch(`http://localhost:4000/audify/playlists/${playlistId}/remove-song/${songId}`, {
+        method: 'DELETE',
+      })
+      setSongs(songs.filter(song => song.id !== songId))
+    } catch (error) {
+      console.error("Error deleting song:", error)
+    }
+  }
+  // Delete Playlist
+  const deletePlaylist = async () => {
+    try {
+      const response = await fetch(URL_PLAYLIST, {
+        method: 'DELETE',
+      })
+    } catch (error) {
+      console.error('Error deleting playlist:', error)
+    }
+  }
+  
   return (
     <div className="playlist-show-page">
       <div className="playlist-sidebar">
@@ -28,7 +82,7 @@ const PlaylistShowPage = ({ playlist, songs, onDelete }) => {
               <div className="song-grid-artist">{song.artist}</div>
               <div className="song-grid-popularity">{song.popularity}</div>
               <div className="song-grid-delete">
-                <button onClick={() => onDelete(song.id)}>🗑️</button>
+                <button onClick={() => deleteSongPlaylist(song.id)}>🗑️</button>
               </div>
             </div>
           ))}
