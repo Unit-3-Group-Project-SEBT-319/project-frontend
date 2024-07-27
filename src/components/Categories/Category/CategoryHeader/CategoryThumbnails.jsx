@@ -9,20 +9,19 @@ const genres = [
   { name: 'Rock', color: '#66ccff', image: 'https://www.billboard.com/wp-content/uploads/2022/03/35.-Metallica-%E2%80%98Master-of-Puppets-1986-album-art-billboard-1240.jpg?w=600' },
 ];
 
-const CategoryThumbnails = ({ currentGenre }) => {
-  const genre = genres.find(g => g.name.toLowerCase() === currentGenre.toLowerCase());
+const CategoryThumbnails = ({ genre }) => {
+  const matchedGenre = genres.find(g => g.name.toLowerCase() === genre.toLowerCase());
 
-  if (!genre) {
+  if (!matchedGenre) {
     return <div>Genre not found</div>;
   }
 
   return (
-    <div style={{ backgroundColor: genre.color, margin: '10px', padding: '10px', borderRadius: '5px' }}>
-      <img src={genre.image} alt={genre.name} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px' }} />
-      <h1>{genre.name}</h1>
+    <div style={{ backgroundColor: matchedGenre.color, margin: '10px', padding: '10px', borderRadius: '5px' }}>
+      <img src={matchedGenre.image} alt={matchedGenre.name} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px' }} />
+      <h1>{matchedGenre.name}</h1>
     </div>
   );
 };
 
 export default CategoryThumbnails;
-
