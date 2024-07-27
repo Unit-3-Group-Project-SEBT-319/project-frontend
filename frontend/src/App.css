@@ -1,0 +1,94 @@
+/* Basic styling for the body */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Container for the entire home page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Search bar container */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-container button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+/* Layout for the playlists and recommended songs section */
+.playlist-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Playlist section styling */
+.playlists {
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.playlists h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.playlists ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.playlists li {
+  margin-bottom: 10px;
+}
+
+/* Recommended songs section styling */
+.recommended-songs {
+  width: 65%;
+}
+
+.recommended-songs h2 {
+  font-size: 20px;
+}
+
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.song-item {
+  width: 100%;
+  height: 100px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: green;
+  border-radius: 5px;
+}
