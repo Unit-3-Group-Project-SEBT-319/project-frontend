@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-
-const PlaylistShowPage = ({ playlistId }) => {
+const PlaylistShowPage = () => {
+  const { playlistId } = useParams()
   const [playlist, setPlaylist] = useState(null)
   const [songs, setSongs] = useState([])
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CategoryThumbnails from './CategoryHeader/CategoryThumbnails'
 
 const CategoryShowPage = () => {
   const [songs, setSongs] = useState([]);
@@ -25,6 +26,7 @@ const CategoryShowPage = () => {
   return (
 <div>
       <h1>Songs in {genre} genre</h1>
+      <CategoryThumbnails genre={genre}/>
       <ul>
         {songs.map((song) => (
           <li key={song.trackId}>
