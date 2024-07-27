@@ -25,7 +25,6 @@ const CategoryShowPage = () => {
 
   return (
 <div>
-      <h1>Songs in {genre} genre</h1>
       <CategoryThumbnails genre={genre}/>
       <ul>
         {songs.map((song) => (
