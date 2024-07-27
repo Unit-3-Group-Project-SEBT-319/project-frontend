@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 
 const SongList = ({ songs, onDelete }) => {
   return (

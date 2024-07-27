@@ -1,30 +1,23 @@
 import React from 'react';
-import '../App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Playlist from './pages/Playlist';
-import CategoryShowPage from './pages/CategoryShowPage';
-import Categories from './Categories/Categories';
-import CreatePlaylist from './pages/CreatePlaylist';
-import UpdatePlaylist from './pages/UpdatePlaylist';
-import DeletePlaylist from './pages/DeletePlaylist';
-import AddSong from './pages/AddSong';
+import CategoryShowPage from './components/Categories/Category/CategoryShowPage';
+import Categories from './components/Categories/Categories';
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/categories" component={Categories} />
-        <Route path="/category/:genre" component={CategoryShowPage} />
-        <Route path="/playlist/:id" component={Playlist} />
-        <Route path="/create-playlist" component={CreatePlaylist} />
-        <Route path="/update-playlist/:id" component={UpdatePlaylist} />
-        <Route path="/delete-playlist/:id" component={DeletePlaylist} />
-        <Route path="/playlist/:playlistId/add-song" component={AddSong} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:genre" element={<CategoryShowPage />} />
+        <Route path="/playlist/:id" element={<Playlist />} />
+      </Routes>
   );
 };
 
 export default App;
+
+
+
