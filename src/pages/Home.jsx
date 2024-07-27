@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPlaylists = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/audify/playlists');
+        const response = await fetch('http://localhost:4000/audify/playlists');
         setPlaylists(response.data.data)
       } catch (error) {
         console.error('Error fetching all playlists:', error);
@@ -25,7 +25,7 @@ const Home = () => {
 
   const addNewPlaylist = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/audify/playlists', {
+      const response = await fetch('http://localhost:4000/audify/playlists', {
         name: newPlaylistName,
         description: newPlaylistDescription,
       });
