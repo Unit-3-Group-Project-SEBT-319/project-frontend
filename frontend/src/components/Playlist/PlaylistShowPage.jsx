@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 
 const PlaylistShowPage = ({ playlist, songs, onDelete }) => {
   return (

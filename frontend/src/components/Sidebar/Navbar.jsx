@@ -1,7 +1,6 @@
 import React from 'react';
 // Get React to help build this component.
-import './Navbar.css';
-// Get the CSS file to style this component.
+
 
 const Navbar = () => (
 // Create a new component called Navbar.
