@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav li {
+    margin-bottom: 10px;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headline {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .recommended-songs {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .recommended-songs h2 {
+    grid-column: span 3;
+    margin-top: 0;
+  }
+  
+  .song {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: green;
+  }
+  
+  .your-playlist {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .your-playlist h2 {
+    margin-top: 0;
+  }
+  
+  .playlist-item {
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
