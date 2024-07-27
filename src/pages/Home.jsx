@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import Categories from '../components/Categories/Categories';
 import PlaylistCard from '../components/Playlist/PlaylistCard';
 
@@ -24,7 +25,7 @@ const Home = () => {
   return (
     <div>
       <div>
-      <h2>Playlists</h2>
+      <h2>Your Library</h2> <span><button>button to make playlist</button></span>
       {playlists.map(playlist => (
       <PlaylistCard key={playlist.id} playlist={playlist} />
       ))}
