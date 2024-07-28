@@ -116,8 +116,9 @@ const PlaylistShowPage = () => {
           {songs.length > 0 ? (
             songs.map((song) => (
               <div key={song._id} className="song-grid-row">
-                <div className="song-grid-title">{song.name}</div>
-                <div className="song-grid-artist">{song.artist}</div>
+                <img src={song.artworkUrl60} alt={song.trackName} />
+                <div className="song-grid-title">{song.trackName}</div>
+                <div className="song-grid-artist">{song.artistName}</div>
                 <div className="song-grid-popularity">{song.popularity}</div>
                 <div className="song-grid-delete">
                   <button onClick={() => deleteSongFromPlaylist(song._id)}>🗑️</button>
