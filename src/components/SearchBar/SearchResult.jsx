@@ -56,7 +56,7 @@ const SearchResult = ({ result }) => {
 
     return (
         <div className="d-flex align-items-center p-2">
-            <img src={result.artworkUrl300 || result.artworkUrl100} alt={result.trackName} className="img-thumbnail" style={{ width: '50px', height: '50px' }} />
+            <img src={result.artworkUrl300 || result.artworkUrl100} alt={result.trackName} style={{width: '50px', height: '50px'}} />
             <div className="flex-grow-1 mx-2">
                 <h5 className="mb-0">{result.trackName}</h5>
                 <p className="mb-0 text-secondary artist-name">{result.artistName}</p>
