@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
-import AddToPlaylistButton from '../Button/AddToPlaylistButton';
+import AddToPlaylistButton from '../Button/AddToPlayListButton';
 import "./searchresult.css";
 
 const SearchResult = ({ result }) => {
