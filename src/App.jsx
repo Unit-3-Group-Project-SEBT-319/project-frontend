@@ -5,12 +5,13 @@ import Home from './pages/Home';
 import PlaylistShowPage from './components/Playlist/PlaylistShowPage'
 import CategoryShowPage from './components/Categories/Category/CategoryShowPage';
 
+
 const App = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:genre" element={<CategoryShowPage />} />
-        <Route path="/playlist/:playlistId" element={<PlaylistShowPage />} />
+        <Route path="/playlist/:id" element={<PlaylistShowPage />} />
       </Routes>
   );
 };

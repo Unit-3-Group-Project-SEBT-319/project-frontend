@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './playlistcard.css';
 
 const PlaylistCard = ({ playlist }) => (
-    <div>
-        <img src={playlist.image} alt={playlist.name} />
-        <h2>{playlist.name}</h2>
-        <Link to={`/playlist/${playlist.id}`}>View</Link>
-        </div>
-)
+  <Link to={`/playlist/${playlist._id}`} style={{ textDecoration: 'none' }}>
+    <div className="d-flex align-items-center playlist-card">
+      <img src={playlist.image} alt={playlist.name} className="playlist-image img-fluid" />
+      <h2 className="ml-3 fs-6">{playlist.name}</h2>
+    </div>
+  </Link>
+);
 
-export default PlaylistCard
+export default PlaylistCard;
