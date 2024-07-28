@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Categories from '../components/Categories/Categories';
 import PlaylistCard from '../components/Playlist/PlaylistCard';
+import SearchBarContainer from "../components/SearchBar/SearchBarContainer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import './home.css';
@@ -56,6 +57,7 @@ const Home = () => {
   return (
     <div>
       <div>
+        <SearchBarContainer/>
         <div className="d-flex align-items-center playlist-card"> 
           <h2>Your Library</h2>
           <button onClick={addNewPlaylist}>
