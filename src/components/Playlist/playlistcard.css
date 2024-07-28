@@ -1,0 +1,21 @@
+.playlist-image {
+    height: 100px; 
+    width: 100px; 
+}
+
+.link-class {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.link-class:hover {
+    text-decoration: none;
+}
+
+.playlist-card {
+    color: #000; 
+}
+
+h2{
+    
+}
