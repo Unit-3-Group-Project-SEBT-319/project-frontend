@@ -8,6 +8,9 @@ const PlaylistShowPage = () => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editing, setEditing] = useState(false)
+  const [editName, setEditName] = useState('')
+  const [editDescription, setEditDescription] = useState('')
 
   const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
@@ -50,6 +53,35 @@ const PlaylistShowPage = () => {
     fetchPlaylist();
     fetchSongs();
   }, [id]);
+
+  // Update Playlist In Line
+  const updatePlaylist = async () => {
+    try {
+      const updateURL = `http://localhost:4000/audify/playlists/${id}`
+      const payload = {
+        name: editName,
+        description: editDescription,
+      }
+      const response = await fetch(updateURL, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        console.log('Updated playlist:', data);
+        setPlaylist(data.data);
+        setEditing(false)
+    } else {
+        const errorData = await response.json()
+    }
+  } catch (error) {
+    console.error("error updating playlist:", error)
+  }
+  }
+
 
   // Delete Song from Playlist
   const deleteSongFromPlaylist = async (songId) => {
@@ -103,9 +135,30 @@ const PlaylistShowPage = () => {
         </div>
       </div>
       <div className="playlist-content">
-        <h1>{playlist.name}</h1>
-        <img src={playlist.image} alt={playlist.name} className="playlist-image img-fluid" />
-        <p>{playlist.description}</p>
+      <div className="playlist-header">
+          {editing ? (
+            <div>
+              <input
+                type="text"
+                value={editName}
+                onChange={(e) => setEditName(e.target.value)}
+              />
+              <textarea
+                value={editDescription}
+                onChange={(e) => setEditDescription(e.target.value)}
+              />
+              <button onClick={updatePlaylist}>Save</button>
+              <button onClick={() => setEditing(false)}>Cancel</button>
+            </div>
+          ) : (
+            <div>
+              <h1>{playlist.name}</h1>
+              <img src={playlist.image} alt={playlist.name} className="playlist-image img-fluid" />
+              <p>{playlist.description}</p>
+              <button onClick={() => setEditing(true)}>Edit</button>
+            </div>
+          )}
+          </div>
         <div className="song-grid">
           <div className="song-grid-header">
             <div className="song-grid-title">Title</div>
