@@ -1,0 +1,149 @@
+.nowplaying-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #282828;
+    color: white;
+    border-top: 1px solid #484848;
+}
+
+.nowplaying-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.nowplaying-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.nowplaying-text {
+    margin-left: 10px;
+}
+
+.nowplaying-title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.nowplaying-artist {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 0;
+}
+
+.audio-player-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align controls to the left */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.custom-audio-player {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.control-icon {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.play-pause-button {
+    font-size: 30px;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.time-controls span {
+    margin: 0 10px;
+}
+
+.seek-slider {
+    width: 300px;
+    background: #404040;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seek-slider::-webkit-slider-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.seek-slider::-moz-range-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.seek-slider::-ms-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.volume-slider {
+    width: 100px;
+    background: #404040;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.volume-slider::-moz-range-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.volume-slider::-ms-thumb {
+    background: #1DB954;
+    border: none;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}

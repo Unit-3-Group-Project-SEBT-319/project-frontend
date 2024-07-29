@@ -116,7 +116,7 @@ const PlaylistShowPage = () => {
           {songs.length > 0 ? (
             songs.map((song) => (
               <div key={song._id} className="song-grid-row">
-                <img src={song.artworkUrl60} alt={song.trackName} />
+                <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
                 <div className="song-grid-title">{song.trackName}</div>
                 <div className="song-grid-artist">{song.artistName}</div>
                 <div className="song-grid-popularity">{song.popularity}</div>
