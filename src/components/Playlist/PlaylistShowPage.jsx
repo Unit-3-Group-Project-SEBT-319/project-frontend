@@ -15,7 +15,7 @@ const PlaylistShowPage = () => {
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
 
   const imageOptions = [
-    '',
+    'https://i.ibb.co/FHYgVdp/Audify-Playlist-Thumbnail1.png'
   ];
 
   useEffect(() => {
