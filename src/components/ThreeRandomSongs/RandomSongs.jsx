@@ -13,15 +13,32 @@ const ThreeRandomSongs = () => {
   const playlistsUrl = "http://localhost:4000/audify/playlists";
 
   const getThreeSongs = async () => {
-    const response = await fetch(threeRandomSongsUrl);
-    const data = await response.json();
-    setThreeSongs(data);
+    try {
+      const response = await fetch(threeRandomSongsUrl);
+      if (!response.ok) {
+        throw new Error(`Error fetching songs: ${response.statusText}`);
+      }
+      const data = await response.json();
+      if (!Array.isArray(data)) {
+        throw new Error('Expected an array of songs');
+      }
+      setThreeSongs(data);
+    } catch (error) {
+      console.error('Failed to fetch random songs:', error);
+    }
   };
 
   const fetchPlaylists = async () => {
-    const response = await fetch(playlistsUrl);
-    const data = await response.json();
-    setPlaylists(data.data);
+    try {
+      const response = await fetch(playlistsUrl);
+      if (!response.ok) {
+        throw new Error(`Error fetching playlists: ${response.statusText}`);
+      }
+      const data = await response.json();
+      setPlaylists(data.data);
+    } catch (error) {
+      console.error('Failed to fetch playlists:', error);
+    }
   };
 
   useEffect(() => {
@@ -38,20 +55,25 @@ const ThreeRandomSongs = () => {
           style={{ cursor: 'pointer', fontSize: '24px' }} 
         />
       </div>
-      {threeSongs.map((song) => 
-        <div key={song.trackId}>
-          <SongItem songdata={song} />
-          <PlayMusicButton song={song}/>
-          <AddToPlayListButton
-            songId={song.trackId}
-            songData={song}
-            playlists={playlists}
-            onSuccess={() => console.log('Song added to playlist')}
-          />
-        </div>
+      {threeSongs.length > 0 ? (
+        threeSongs.map((song) => 
+          <div key={song.trackId}>
+            <SongItem songdata={song} />
+            <PlayMusicButton song={song}/>
+            <AddToPlayListButton
+              songId={song.trackId}
+              songData={song}
+              playlists={playlists}
+              onSuccess={() => console.log('Song added to playlist')}
+            />
+          </div>
+        )
+      ) : (
+        <p>No songs available</p>
       )}
     </div>
   );
 };
 
 export default ThreeRandomSongs;
+  
