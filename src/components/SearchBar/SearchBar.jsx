@@ -12,7 +12,13 @@ const SearchBar = ({ setFetchedSearchTerm }) => {
       try {
         const response = await fetch(`http://localhost:4000/audify/search/songs?q=${encodeURIComponent(newSearchTerm)}`);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          if (response.status === 404) {
+            console.log('No songs found for the query.');
+            setFetchedSearchTerm(null);
+            return; 
+          } else {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
         }
         const data = await response.json();
         setFetchedSearchTerm(data);
@@ -30,8 +36,8 @@ const SearchBar = ({ setFetchedSearchTerm }) => {
         type="text" 
         value={searchTerm} 
         onChange={updateSearchTerm} 
-        placeholder='Find your song...'
-        className="form-control"
+        placeholder='Find your song...' 
+        className="form-control" 
       />
     </div>
   );
