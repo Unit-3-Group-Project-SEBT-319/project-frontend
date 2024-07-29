@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddToPlayListButton from '../Button/AddToPlayListButton';
+import PlayMusicButton from '../Button/PlayMusicButton';
 import "./searchresult.css";
 
 const SearchResult = ({ result }) => {
@@ -62,6 +63,7 @@ const SearchResult = ({ result }) => {
                 <p className="mb-0 text-secondary artist-name">{result.artistName}</p>
             </div>
             <p className="mb-0 text-muted">{result.primaryGenreName}</p>
+            <PlayMusicButton song={songData} />
             <AddToPlayListButton
                 songId={result.trackId}
                 songData={songData}
