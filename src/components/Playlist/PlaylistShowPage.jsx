@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PlayMusicButton from '../Button/PlayMusicButton';
+import InlineEdit from '../InLineEdit/InLineEdit';
 import './PlaylistShowPage.css';
 
 const PlaylistShowPage = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [playlist, setPlaylist] = useState(null);
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,19 +14,20 @@ const PlaylistShowPage = () => {
   const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
 
+  const imageOptions = [
+    '',
+  ];
+
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        console.log(`Fetching playlist from: ${URL_PLAYLIST}`);
         const response = await fetch(URL_PLAYLIST);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched playlist:', data);
         setPlaylist(data.data);
       } catch (error) {
-        console.error('Error fetching playlist:', error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -33,16 +36,13 @@ const PlaylistShowPage = () => {
 
     const fetchSongs = async () => {
       try {
-        console.log(`Fetching songs from: ${URL_SONGS}`);
         const response = await fetch(URL_SONGS);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched songs:', data);
         setSongs(data.data || []);
       } catch (error) {
-        console.error('Error fetching songs:', error);
         setError(error.message);
       }
     };
@@ -51,11 +51,25 @@ const PlaylistShowPage = () => {
     fetchSongs();
   }, [id]);
 
-  // Delete Song from Playlist
+  const handleUpdatePlaylist = async (updatedFields) => {
+    try {
+      const response = await fetch(URL_PLAYLIST, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedFields),
+      });
+      const data = await response.json();
+      setPlaylist(data.data);
+    } catch (error) {
+      console.error('Error updating playlist:', error);
+    }
+  };
+
   const deleteSongFromPlaylist = async (songId) => {
     try {
       const deleteURL = `http://localhost:4000/audify/playlists/${id}/remove-song/${songId}`;
-      console.log(`Deleting song from: ${deleteURL}`);
       await fetch(deleteURL, {
         method: 'DELETE',
       });
@@ -65,10 +79,8 @@ const PlaylistShowPage = () => {
     }
   };
 
-  // Delete Playlist
   const deletePlaylist = async () => {
     try {
-      console.log(`Deleting playlist from: ${URL_PLAYLIST}`);
       await fetch(URL_PLAYLIST, {
         method: 'DELETE',
       });
@@ -93,24 +105,26 @@ const PlaylistShowPage = () => {
   return (
     <div className="playlist-show-page">
       <div className="playlist-sidebar">
-        <div className="playlist-section">
-          <h2>Playlists</h2>
-          {/* Add playlist links or items here */}
-        </div>
-        <div className="now-playing">
-          <h2>Now Playing</h2>
-          {/* Add now playing content here */}
-        </div>
       </div>
       <div className="playlist-content">
-        <h1>{playlist.name}</h1>
-        <img src={playlist.image} alt={playlist.name} className="playlist-image img-fluid" />
-        <p>{playlist.description}</p>
+        <InlineEdit
+          value={playlist.name}
+          onSetValue={(newValue) => handleUpdatePlaylist({ name: newValue })}
+        />
+        <InlineEdit
+          value={playlist.image}
+          onSetValue={(newValue) => handleUpdatePlaylist({ image: newValue })}
+          type="select"
+          options={imageOptions}
+        />
+        <InlineEdit
+          value={playlist.description}
+          onSetValue={(newValue) => handleUpdatePlaylist({ description: newValue })}
+        />
         <div className="song-grid">
           <div className="song-grid-header">
             <div className="song-grid-title">Title</div>
             <div className="song-grid-artist">Artist</div>
-            <div className="song-grid-popularity">Popularity</div>
             <div className="song-grid-delete">Delete</div>
           </div>
           {songs.length > 0 ? (
@@ -119,8 +133,8 @@ const PlaylistShowPage = () => {
                 <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
                 <div className="song-grid-title">{song.trackName}</div>
                 <div className="song-grid-artist">{song.artistName}</div>
-                <div className="song-grid-popularity">{song.popularity}</div>
                 <div className="song-grid-delete">
+                  <PlayMusicButton song={song} />
                   <button onClick={() => deleteSongFromPlaylist(song._id)}>🗑️</button>
                 </div>
               </div>
