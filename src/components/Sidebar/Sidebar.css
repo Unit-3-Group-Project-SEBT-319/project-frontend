@@ -68,9 +68,6 @@ body {
     cursor: pointer;
     font-size: 16px;
   }
-<<<<<<< HEAD
-  
-=======
 
   .playlist-sidebar-image {
     width: 40px; 
@@ -79,7 +76,6 @@ body {
     margin-right: 10px;
   }
 
->>>>>>> upstream/main
   .add-playlist-button:hover {
     opacity: 0.8;
   }
