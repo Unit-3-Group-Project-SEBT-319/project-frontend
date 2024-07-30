@@ -1,0 +1,22 @@
+.developer-headshot-link {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.developer-headshot-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.developer-headshot {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.developer-headshot-link:hover .developer-headshot {
+  transform: scale(1.1);
+}
