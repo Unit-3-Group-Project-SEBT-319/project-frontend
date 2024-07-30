@@ -68,7 +68,18 @@ body {
     cursor: pointer;
     font-size: 16px;
   }
+<<<<<<< HEAD
   
+=======
+
+  .playlist-sidebar-image {
+    width: 40px; 
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+
+>>>>>>> upstream/main
   .add-playlist-button:hover {
     opacity: 0.8;
   }

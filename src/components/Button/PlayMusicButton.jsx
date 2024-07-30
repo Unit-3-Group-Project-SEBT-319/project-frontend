@@ -1,5 +1,8 @@
 import { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { SongPlayerContext } from '../SongPlayer/SongPlayerContext';
+import './PlayMusicButton.css'
 
 const PlayMusicButton = ({ song }) => {
   const { setPlayingSong } = useContext(SongPlayerContext);
@@ -11,7 +14,7 @@ const PlayMusicButton = ({ song }) => {
 
   return (
     <button onClick={() => setPlayingSong(song)} className="play-music-button">
-      Play
+    <FontAwesomeIcon icon={faPlay} />
     </button>
   );
 };

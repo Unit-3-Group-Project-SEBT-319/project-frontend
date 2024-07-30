@@ -37,7 +37,7 @@ const Home = () => {
         <NowPlaying />
       </div>
     </SongPlayerContext.Provider>
-  );
-};
+  )
+}
 
 export default Home;
