@@ -13,7 +13,7 @@ const Home = () => {
   // const [error, setError] = useState(null);
 
   return (
-      <div>
+      <div className="main-body">
         <SearchBarContainer />
         <div className="d-flex align-items-center playlist-card">
         </div>

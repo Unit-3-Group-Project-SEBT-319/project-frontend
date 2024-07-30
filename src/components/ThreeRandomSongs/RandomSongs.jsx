@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SongItem from './SongItem';
-import AddToPlayListButton from '../Button/AddToPlayListButton';
-import PlayMusicButton from '../Button/PlayMusicButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ThreeRandomSongs = () => {
   const [threeSongs, setThreeSongs] = useState([]);
@@ -47,33 +46,27 @@ const ThreeRandomSongs = () => {
   }, []);
 
   return (
-    <div>
-      <div className='refresh-button'>
+    <div className='container'>
+      <div className='refresh-button text-right mb-3'>
         <FontAwesomeIcon 
           icon={faRotate} 
           onClick={getThreeSongs} 
           style={{ cursor: 'pointer', fontSize: '24px' }} 
         />
       </div>
-      {threeSongs.length > 0 ? (
-        threeSongs.map((song) => 
-          <div key={song.trackId}>
-            <SongItem songdata={song} />
-            <PlayMusicButton song={song}/>
-            <AddToPlayListButton
-              songId={song.trackId}
-              songData={song}
-              playlists={playlists}
-              onSuccess={() => console.log('Song added to playlist')}
-            />
-          </div>
-        )
-      ) : (
-        <p>No songs available</p>
-      )}
+      <div className='row'>
+        {threeSongs.length > 0 ? (
+          threeSongs.map((song) => 
+            <div className='col-md-4 mb-4' key={song.trackId}>
+              <SongItem songdata={song} playlists={playlists} />
+            </div>
+          )
+        ) : (
+          <p>No songs available</p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default ThreeRandomSongs;
-  

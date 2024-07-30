@@ -1,5 +1,6 @@
 import React from 'react';
 import GenreCard from './CategoryCard/GenreCard';
+import './categories.css'
 
 const Categories = () => {
   const genres = [
@@ -25,5 +26,3 @@ const Categories = () => {
 };
 
 export default Categories;
-
-

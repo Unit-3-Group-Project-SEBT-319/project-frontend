@@ -1,116 +1,138 @@
 .playlist-show-page {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: linear-gradient(135deg, #000000, #434343); 
-    color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .playlist-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .playlist-image-container {
-    margin-right: 20px;
-  }
-  
-  .playlist-info {
-    flex: 1;
-  }
-  
-  .playlist-title {
-    font-size: 24px;
-    margin: 0;
-    color: #ffffff;
-  }
-  
-  .playlist-description {
-    font-size: 16px;
-    color: #b3b3b3;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000, #434343); 
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  .delete-playlist-btn {
-    margin-top: 20px;
-    background-color: #ff3333;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .delete-playlist-btn:hover {
-    background-color: #cc0000;
-  }
-  
-  .song-grid {
-    display: flex;
-    flex-direction: column;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .song-grid-header {
-    display: grid;
-    grid-template-columns: 50px 1fr 2fr 100px; 
-    gap: 300px;
-    padding: 10px;
-    background-color: #282828;
-    color: #b3b3b3;
-    font-weight: bold;
-    border-bottom: 1px solid #333;
-  }
-  
-  .song-grid-row {
-    display: grid;
-    grid-template-columns: 50px 1fr 2fr 100px; 
-    gap: 5px;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #333;
-  }
-  
-  .song-grid-title,
-  .song-grid-artist {
-    color: #ffffff;
-  }
-  
-  .song-grid-delete {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .song-artwork {
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-    object-fit: cover;
-  }
-  
-  .no-songs {
-    text-align: center;
-    color: #b3b3b3;
-    padding: 20px;
-  }
-  
+.playlist-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  .delete-song-btn {
-    background: none;
-    border: none;
-    color: #f9f9f9;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  .delete-song-btn:hover {
-    color: #cc0000;
-  }
-  
+
+.playlist-image-container {
+  margin-right: 20px;
+}
+
+.playlist-info {
+  flex: 1;
+}
+
+.playlist-title {
+  font-size: 24px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.playlist-description {
+  font-size: 16px;
+  color: #b3b3b3;
+}
+
+
+.delete-playlist-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  font-size: 1.5rem; 
+  margin-top: 10px; 
+}
+
+.delete-playlist-btn:hover {
+  background-color: transparent;
+}
+
+.delete-playlist-btn[title] {
+  position: relative;
+}
+
+.delete-playlist-btn[title]::after {
+  content: attr(title);
+  position: absolute;
+  top: -30px; 
+  right: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.delete-playlist-btn:hover[title]::after {
+  opacity: 1;
+}
+
+.song-grid {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.song-grid-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 2fr 100px; 
+  gap: 300px;
+  padding: 10px;
+  background-color: #282828;
+  color: #b3b3b3;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+}
+
+.song-grid-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 2fr 100px; 
+  gap: 5px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.song-grid-title,
+.song-grid-artist {
+  color: #ffffff;
+}
+
+.song-grid-delete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-artwork {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.no-songs {
+  text-align: center;
+  color: #b3b3b3;
+  padding: 20px;
+}
+
+
+.delete-song-btn {
+  background: none;
+  border: none;
+  color: #f9f9f9;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.delete-song-btn:hover {
+  color: #cc0000;
+}

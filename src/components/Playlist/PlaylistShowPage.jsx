@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import PlayMusicButton from '../Button/PlayMusicButton';
 import InlineEdit from '../InLineEdit/InLineEdit';
 import './PlaylistShowPage.css';
 
-const PlaylistShowPage = () => {
+const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const { id } = useParams();
   const [playlist, setPlaylist] = useState(null);
   const [songs, setSongs] = useState([]);
@@ -76,6 +76,7 @@ const PlaylistShowPage = () => {
       });
       const data = await response.json();
       setPlaylist(data.data);
+      updatePlaylist(id, updatedFields); // Update parent state
     } catch (error) {
       console.error('Error updating playlist:', error);
     }
@@ -144,7 +145,16 @@ const PlaylistShowPage = () => {
               className="playlist-description-edit"
             />
           </p>
-        </div>
+          </div>
+          <div className="delete-playlist-container">
+          <button
+            className="delete-playlist-btn"
+            onClick={deletePlaylist}
+            title="Delete Playlist"
+          >
+            <FontAwesomeIcon icon={faCircleXmark} size="lg" style={{color: "#f83a3a",}} />
+          </button>
+          </div>
       </div>
       <div className="song-grid">
         <div className="song-grid-header">
@@ -167,8 +177,7 @@ const PlaylistShowPage = () => {
           <div className="no-songs">No songs available</div>
         )}
       </div>
-      <button className="delete-playlist-btn" onClick={deletePlaylist}>Delete Playlist</button>
-    </div>
+      </div>
   );
 };
 
