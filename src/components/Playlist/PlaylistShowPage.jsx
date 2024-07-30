@@ -15,8 +15,20 @@ const PlaylistShowPage = () => {
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
 
   const imageOptions = [
-    'https://i.ibb.co/FHYgVdp/Audify-Playlist-Thumbnail1.png'
+    'https://i.ibb.co/S7brgLp/image.png',
+    'https://i.ibb.co/ZSMp6bh/image-4.png',
+    'https://i.ibb.co/KwXvwSv/image-3.png',
+    'https://i.ibb.co/g4FgTw0/image-2.png',
+    'https://i.ibb.co/dGJJpjS/image-1.png'
   ];
+
+  const imageNames = {
+    'https://i.ibb.co/S7brgLp/image.png': 'Orange',
+    'https://i.ibb.co/ZSMp6bh/image-4.png': 'Green',
+    'https://i.ibb.co/KwXvwSv/image-3.png': 'Pink',
+    'https://i.ibb.co/g4FgTw0/image-2.png': 'Red',
+    'https://i.ibb.co/dGJJpjS/image-1.png': 'Blue'
+  };
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -116,6 +128,8 @@ const PlaylistShowPage = () => {
           onSetValue={(newValue) => handleUpdatePlaylist({ image: newValue })}
           type="select"
           options={imageOptions}
+          optionNames={imageNames}
+          className="playlist-thumbnail-showpage"
         />
         <InlineEdit
           value={playlist.description}

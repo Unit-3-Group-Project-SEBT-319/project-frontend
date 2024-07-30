@@ -71,11 +71,14 @@ const Sidebar = () => {
             </button>
           </div>
         </li>
-        {playlists.map((playlist) => (
-          <li key={playlist._id}>
-            <Link to={`/playlist/${playlist._id}`} className="sidebar-link">
-              {playlist.name}
-            </Link>
+          {playlists.map((playlist) => (
+            <li key={playlist._id} className="playlist-item">
+              <Link to={`/playlist/${playlist._id}`} className="sidebar-link">
+                {playlist.image && (
+                  <img src={playlist.image} alt={playlist.name} className="playlist-sidebar-image" />
+                )}
+                <span className="playlist-name">{playlist.name}</span>
+              </Link>
           </li>
         ))}
       </ul>
@@ -84,4 +87,4 @@ const Sidebar = () => {
 )
 }
 
-export default Sidebar
+export default Sidebar;
