@@ -56,14 +56,14 @@ const Sidebar = () => {
     <h1>Audify</h1>
     <div className="sidebar-nav">
       <ul>
-        <li>
+        <li className='position-sticky'>
           <Link to="/" className="sidebar-link">
             <FontAwesomeIcon icon={faHome} />
             <span>Home</span>
           </Link>
         </li>
         <li>
-          <div className="library-section">
+          <div className="library-section position-sticky">
             <FontAwesomeIcon icon={faMusic} className="library-icon" />
             <p className="library-text">My Library</p>
             <button onClick={addNewPlaylist} className="add-playlist-button">
