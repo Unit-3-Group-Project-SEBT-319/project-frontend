@@ -7,3 +7,7 @@
     align-items: center;
     min-width: 200px;
 }
+
+.main-container-search{
+    z-index: 99;
+}

@@ -1,11 +1,12 @@
 .sidebar {
   width: 250px;
-  background: linear-gradient(135deg, #000000, #434343);
+  /* background: linear-gradient(135deg, #000000, #434343); */
+  background: #212121;
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px); /* Adjust according to NowPlaying height */
+  height: calc(100vh - 60px);
   overflow-y: auto;
 }
 

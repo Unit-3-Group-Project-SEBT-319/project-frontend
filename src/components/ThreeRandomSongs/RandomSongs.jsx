@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SongItem from './SongItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './randomsongs.css'
 
 const ThreeRandomSongs = () => {
   const [threeSongs, setThreeSongs] = useState([]);
@@ -46,12 +46,12 @@ const ThreeRandomSongs = () => {
   }, []);
 
   return (
-    <div className='container'>
-      <div className='refresh-button text-right mb-3'>
+    <div className='container custom-container pt-4'>
+      <div className='d-flex refresh-button justify-content-end mb-3'>
         <FontAwesomeIcon 
           icon={faRotate} 
           onClick={getThreeSongs} 
-          style={{ cursor: 'pointer', fontSize: '24px' }} 
+          style={{ cursor: 'pointer', fontSize: '18px' }} 
         />
       </div>
       <div className='row'>
