@@ -8,5 +8,7 @@
     max-height: 300px;
     overflow-y: scroll;
     margin-top: 5px;
+    z-index: 99;
+    position: relative;
 }
 

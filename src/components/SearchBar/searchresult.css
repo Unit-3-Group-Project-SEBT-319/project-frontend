@@ -1,3 +1,7 @@
+.main-container{
+    z-index: 99;
+}
+
 .search-result{
     padding: 10px 20px;
 }

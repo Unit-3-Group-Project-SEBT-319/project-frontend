@@ -27,7 +27,7 @@ const SearchBarContainer = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center mt-4">
+    <div className="d-flex justify-content-center mt-4 main-container-search">
       <div className="w-75 position-relative">
         <SearchBar setFetchedSearchTerm={handleSearch} />
         {isDropdownVisible && (

@@ -76,7 +76,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
       });
       const data = await response.json();
       setPlaylist(data.data);
-      updatePlaylist(id, updatedFields); // Update parent state
+      updatePlaylist(id, updatedFields); 
     } catch (error) {
       console.error('Error updating playlist:', error);
     }

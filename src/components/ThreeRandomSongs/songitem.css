@@ -1,16 +1,59 @@
 .song-item-card {
     text-align: left;
     border: none !important;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .threesongimages {
     width: 100%;
     height: auto;
+    border-top-left-radius: 5px !important;
+    display: block;
+}
+
+.overlay-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.img-container:hover .overlay-buttons {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-buttons button {
+    margin: 0 5px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .card-body {
@@ -18,19 +61,40 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 0 !important;
+    padding-top: 0.5rem !important;
+    padding-right: 0 !important;
+}
+
+.song-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-title {
-    font-size: 1.5rem;
+    font-weight: 800;
+    font-size: 1.3rem;
     max-height: 3rem;
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1; 
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
-    white-space: normal; 
+    white-space: normal;
+    margin-bottom: 0.1rem !important;
 }
 
 .card-text {
     font-size: 0.7rem;
+    font-weight: 500;
+    color: rgb(70, 70, 70);
+}
+
+.song-details button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
