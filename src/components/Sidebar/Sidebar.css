@@ -1,87 +1,75 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    display: flex;
-    min-height: 100vh; 
-  }
-  
-  .sidebar {
-    width: 250px;
-    background: linear-gradient(135deg, #000000, #434343); 
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    position: fixed; 
-    height: 100vh; 
-    overflow-y: auto; 
-  }
-  
-  .sidebar h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar-nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar-nav li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-link {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidebar-link span {
-    margin-left: 10px;
-  }
-  
-  .library-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .library-icon {
-    font-size: 20px;
-    margin-right: 10px;
-  }
-  
-  .library-text {
-    margin: 0;
-    flex: 1;
-  }
-  
-  .add-playlist-button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-  }
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #000000, #434343);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Adjust according to NowPlaying height */
+  overflow-y: auto;
+}
 
-  .playlist-sidebar-image {
-    width: 40px; 
-    height: 40px;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
+.sidebar h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .add-playlist-button:hover {
-    opacity: 0.8;
-  }
-  
-  .main-content {
-    margin-left: 250px; 
-    padding: 20px;
-    flex: 1;
-  }
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link span {
+  margin-left: 10px;
+}
+
+.library-section {
+  display: flex;
+  align-items: center;
+}
+
+.library-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.library-text {
+  margin: 0;
+  flex: 1;
+}
+
+.add-playlist-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.playlist-sidebar-image {
+  width: 40px; 
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.add-playlist-button:hover {
+  opacity: 0.8;
+}
+
+.main-content {
+  margin-left: 250px; 
+  padding: 20px;
+  flex: 1;
+}
