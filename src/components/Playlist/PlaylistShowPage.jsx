@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import PlayMusicButton from '../Button/PlayMusicButton';
 import InlineEdit from '../InLineEdit/InLineEdit';
 import './PlaylistShowPage.css';
@@ -96,7 +98,7 @@ const PlaylistShowPage = () => {
       await fetch(URL_PLAYLIST, {
         method: 'DELETE',
       });
-      window.location.href = '/'; // redirect after deletion
+      window.location.href = '/'; 
     } catch (error) {
       console.error('Error deleting playlist:', error);
     }
@@ -116,49 +118,56 @@ const PlaylistShowPage = () => {
 
   return (
     <div className="playlist-show-page">
-      <div className="playlist-sidebar">
-      </div>
-      <div className="playlist-content">
-        <InlineEdit
-          value={playlist.name}
-          onSetValue={(newValue) => handleUpdatePlaylist({ name: newValue })}
-        />
-        <InlineEdit
-          value={playlist.image}
-          onSetValue={(newValue) => handleUpdatePlaylist({ image: newValue })}
-          type="select"
-          options={imageOptions}
-          optionNames={imageNames}
-          className="playlist-thumbnail-showpage"
-        />
-        <InlineEdit
-          value={playlist.description}
-          onSetValue={(newValue) => handleUpdatePlaylist({ description: newValue })}
-        />
-        <div className="song-grid">
-          <div className="song-grid-header">
-            <div className="song-grid-title">Title</div>
-            <div className="song-grid-artist">Artist</div>
-            <div className="song-grid-delete">Delete</div>
-          </div>
-          {songs.length > 0 ? (
-            songs.map((song) => (
-              <div key={song._id} className="song-grid-row">
-                <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
-                <div className="song-grid-title">{song.trackName}</div>
-                <div className="song-grid-artist">{song.artistName}</div>
-                <div className="song-grid-delete">
-                  <PlayMusicButton song={song} />
-                  <button onClick={() => deleteSongFromPlaylist(song._id)}>🗑️</button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div>No songs available</div>
-          )}
+      <div className="playlist-header">
+        <div className="playlist-image-container">
+          <InlineEdit
+            value={playlist.image}
+            onSetValue={(newValue) => handleUpdatePlaylist({ image: newValue })}
+            type="select"
+            options={imageOptions}
+            optionNames={imageNames}
+            className="playlist-thumbnail-edit"
+          />
         </div>
-        <button onClick={deletePlaylist}>Delete Playlist</button>
+        <div className="playlist-info">
+          <h1 className="playlist-title">
+            <InlineEdit
+              value={playlist.name}
+              onSetValue={(newValue) => handleUpdatePlaylist({ name: newValue })}
+              className="playlist-title-edit"
+            />
+          </h1>
+          <p className="playlist-description">
+            <InlineEdit
+              value={playlist.description}
+              onSetValue={(newValue) => handleUpdatePlaylist({ description: newValue })}
+              className="playlist-description-edit"
+            />
+          </p>
+        </div>
       </div>
+      <div className="song-grid">
+        <div className="song-grid-header">
+          <div className="song-grid-title">Title</div>
+          <div className="song-grid-artist">Artist</div>
+        </div>
+        {songs.length > 0 ? (
+          songs.map((song) => (
+            <div key={song._id} className="song-grid-row">
+              <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
+              <div className="song-grid-title">{song.trackName}</div>
+              <div className="song-grid-artist">{song.artistName}</div>
+              <div className="song-grid-delete">
+                <PlayMusicButton song={song} />
+                <button className="delete-song-btn" onClick={() => deleteSongFromPlaylist(song._id)}><FontAwesomeIcon icon={faTrash} /></button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="no-songs">No songs available</div>
+        )}
+      </div>
+      <button className="delete-playlist-btn" onClick={deletePlaylist}>Delete Playlist</button>
     </div>
   );
 };

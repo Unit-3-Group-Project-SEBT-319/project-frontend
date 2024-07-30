@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import './AddToPlayListButton.css'; 
 
 const AddToPlayListButton = ({ songId, songData, playlists, onSuccess }) => {
   const [selectedPlaylist, setSelectedPlaylist] = useState('');
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const addSong = async () => {
     if (!selectedPlaylist) {
@@ -43,6 +45,8 @@ const AddToPlayListButton = ({ songId, songData, playlists, onSuccess }) => {
         if (onSuccess) {
           onSuccess(data.data);
         }
+        setSelectedPlaylist(''); 
+        setIsDropdownVisible(false); 
       } else {
         console.error('Failed to add song to playlist:', response.statusText);
         const errorData = await response.json();
@@ -54,19 +58,32 @@ const AddToPlayListButton = ({ songId, songData, playlists, onSuccess }) => {
   };
 
   return (
-    <div>
-      <select
-        onChange={(e) => setSelectedPlaylist(e.target.value)}
-        value={selectedPlaylist}
+    <div className="add-to-playlist-container">
+      <button 
+        className="add-to-playlist-btn"
+        onClick={() => setIsDropdownVisible(prev => !prev)}
       >
-        <option value="">Select Playlist</option>
-        {playlists.map(playlist => (
-          <option key={playlist._id} value={playlist._id}>
-            {playlist.name}
-          </option>
-        ))}
-      </select>
-      <button onClick={addSong}><FontAwesomeIcon icon={faCirclePlus} /></button>
+        <FontAwesomeIcon icon={faCirclePlus} />
+      </button>
+      {isDropdownVisible && (
+        <div className="dropdown">
+          <select
+            className="playlist-select"
+            onChange={(e) => setSelectedPlaylist(e.target.value)}
+            value={selectedPlaylist}
+          >
+            <option value="">Select Playlist</option>
+            {playlists.map(playlist => (
+              <option key={playlist._id} value={playlist._id}>
+                {playlist.name}
+              </option>
+            ))}
+          </select>
+          <button className="submit-btn" onClick={addSong}>
+            Add to Playlist
+          </button>
+        </div>
+      )}
     </div>
   );
 };

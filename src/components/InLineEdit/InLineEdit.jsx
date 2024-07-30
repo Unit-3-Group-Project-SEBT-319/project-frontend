@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../InLineEdit/inlineedit.css'
 
 const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionNames = {} }) => {
   const [isEditing, setIsEditing] = useState(false);
