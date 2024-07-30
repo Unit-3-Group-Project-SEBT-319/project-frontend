@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../InLineEdit/inlineedit.css'
 
-const InlineEdit = ({ value, onSetValue, type = 'text', options = [] }) => {
+const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionNames = {} }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [inputValue, setInputValue] = useState(value);
 
@@ -22,7 +23,7 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [] }) => {
           <select value={inputValue} onChange={handleSelectChange} onBlur={handleSave} autoFocus>
             {options.map((option, index) => (
               <option key={index} value={option}>
-                {option}
+                {optionNames[option] || option}
               </option>
             ))}
           </select>
@@ -37,8 +38,8 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [] }) => {
         )
       ) : (
         <span onClick={() => setIsEditing(true)}>
-          {type === 'select' ? (
-            <img src={value} alt="playlist" className="playlist-image img-fluid" />
+          {type === 'select' ? ( 
+            <img src={value} alt="playlist" className="img-fluid" title={optionNames[value] || value} style={{ width: '220px', height: 'auto' }}/>
           ) : (
             value
           )}
