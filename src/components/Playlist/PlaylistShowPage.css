@@ -21,8 +21,8 @@
 }
 
 .playlist-info {
-  max-width: 100%;         
-  overflow: hidden;        
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .playlist-title {
@@ -30,10 +30,10 @@
   font-weight: 650;
   margin: 0;
   color: #ffffff;
-  white-space: nowrap;     
-  overflow: hidden;        
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;         
+  max-width: 100%;
 }
 
 .playlist-title,
@@ -80,11 +80,11 @@
   color: #b3b3b3;
   background-color: transparent;
   border: none;
-  width: 100%;             
-  white-space: nowrap;     
-  overflow: hidden;       
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;         
+  max-width: 100%;
 }
 
 .delete-playlist-container {
@@ -212,33 +212,32 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.playlist-thumbnail:hover {
-  transform: scale(1.05);
+.playlist-thumbnail:active {
+  transform: scale(0.9);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .image-gallery {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #333;
+  top: 147px;
+  left: -5px;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: none;
   z-index: 1000;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
 .image-gallery.active {
-  display: grid;
+  display: flex;
 }
 
 .image-gallery img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   cursor: pointer;
   transition: opacity 0.3s;
 }

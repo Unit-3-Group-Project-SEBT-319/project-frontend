@@ -1,5 +1,27 @@
 .custom-container {
-    max-width: 1000px !important;
+    max-width: 90% !important;
+    background: rgb(0,0,0);
+    background: linear-gradient(15deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 100%);
+    position: relative;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 100px !important;
+}
+
+.refresh-button {
+    color: var(--orange-highlight);
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    transition: transform 0.3s ease;
+}
+
+.refresh-button:hover {
+    transform: scale(1.1);
 }
 
 /* Large devices (desktops, 1200px and up) */

@@ -1,8 +1,16 @@
+.genre-card-container {
+    width: 100%;
+    position: relative;
+}
+
 .genre-card {
     width: 100%;
     padding-bottom: 100%;
     position: relative;
     border: none !important;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: transparent !important;
 }
 
 .genre-card .card-body {
@@ -12,11 +20,22 @@
     left: 0;
     right: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    color: var(--orange-color);
+    padding: 10px;
 }
 
-.card {
-    border-radius: 8px;
+.genreimages {
+    max-height: 80%;
+    width: auto;
+}
+
+.genre-text {
+    color: var(--white-text) !important;
+    font-size: 3rem !important;
+    margin-top: 10px;
+    font-size: 1.2rem;
 }

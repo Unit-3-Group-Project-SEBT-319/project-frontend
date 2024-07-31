@@ -7,12 +7,12 @@
     border: none;
     cursor: pointer;
     font-size: 24px;
-    color: #007bff;
+    color: #ffffff;
     transition: color 0.3s;
 }
 
 .add-to-playlist-btn:hover {
-    color: #0056b3;
+    color: #ffffff;
 }
 
 .playlist-dropdown {
@@ -44,10 +44,6 @@
     text-overflow: ellipsis; 
 }
 
-.playlist-item-btn:hover {
-    background-color: #333333;
-}
-
 .playlist-select {
     display: none; 
 }
@@ -56,6 +52,12 @@
     display: none; 
 }
 
-.addtoplaylist-button{
-    color: var(--orange-highlight)
+.addtoplaylist-button {
+    color: var(--orange-highlight);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out; 
+}
+
+.addtoplaylist-button:hover {
+    color: var(--orange-highlight);
+    transform: scale(1.1); 
 }

@@ -2,15 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './genreCard.css';
 
-const GenreCard = ({ genre, color }) => {
+const GenreCard = ({ genre, image }) => {
   return (
-    <Link to={`/category/${genre}`} style={{ textDecoration: 'none' }}>
-      <div className='card text-white genre-card' style={{ backgroundColor: color }}>
-        <div className='card-body d-flex align-items-center justify-content-center'>
-          {genre}
+    <div className='genre-card-container'>
+      <Link to={`/category/${genre}`} style={{ textDecoration: 'none' }}>
+        <div className='card text-white genre-card'>
+          <div className='card-body d-flex flex-column align-items-center justify-content-center'>
+            <img src={image} alt={genre} className='genreimages mb-2' />
+            <div className='genre-text'>{genre}</div>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

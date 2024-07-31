@@ -1,5 +1,5 @@
 :root {
-  --now-playing-height: 0px;
+  --now-playing-height: 80px;
 }
 
 body {
@@ -16,7 +16,6 @@ body {
 
 .sidebar {
   width: 250px;
-  background: linear-gradient(135deg, #000000, #434343);
   color: white;
   padding: 20px;
   display: flex;

@@ -1,0 +1,22 @@
+.genre-header {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-gap: 20px;
+    align-items: center;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #1e1e1e !important;
+}
+
+.genre-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.genre-name h1 {
+    font-size: 4rem;
+    margin: 0;
+}

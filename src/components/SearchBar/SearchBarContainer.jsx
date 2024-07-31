@@ -32,7 +32,7 @@ const SearchBarContainer = () => {
         <SearchBar setFetchedSearchTerm={handleSearch} />
         {isDropdownVisible && (
           <div ref={dropdownRef} className="position-absolute w-100">
-            <DropDownDisplay fetchedSearchTerm={fetchedSearchTerm} />
+            <DropDownDisplay fetchedSearchTerm={fetchedSearchTerm}/>
           </div>
         )}
       </div>
