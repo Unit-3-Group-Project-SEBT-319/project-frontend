@@ -6,12 +6,14 @@ const developerData = {
 '1': {
     name: 'Spencer McGoey',
     favoriteSong: 'Praise Jah In The Moonlight',
-    headshotUrl: 'https://pbs.twimg.com/media/FucgGSvWcAEsm-q.jpg:large'
+    headshotUrl: '/developers/Spencer.jpeg',
+    videoUrl: 'https://www.youtube.com/embed/Kgh9TVm4X8s'
   },
   '2': {
     name: 'Mazi Ahmed',
     favoriteSong: 'BIRDS OF A FEATHER',
-    headshotUrl: 'https://lh5.googleusercontent.com/proxy/hvjlPVUM0RVZuHu-iLI-1Rx7ud2JDcFXTqWHdGSIiigohfKNf4cX9EqpBMS8iKwUmz2JQybRrAxrjeci3veN_ECiGyLYJnvwtHya2IccP6Pa5LmrJf2SC8NmmfnFOi_YDHslMIa8SGoDHXo0k-jJEkKj97lfXmrEZnGPu9YFajr2pgkyNdvDYekNCbWUIHq9E04'
+    headshotUrl: '/developers/Mazi.png',
+    videoUrl: 'https://www.youtube.com/embed/d5gf9dXbPi0'
   },
 };
 
@@ -23,7 +25,17 @@ const AboutDeveloper = () => {
         <div className="developer-info">
           <img src={developer.headshotUrl} alt={`${developer.name} headshot`} className="developer-info-headshot" />
           <h1>Hi, my name is {developer.name}</h1>
-          <p>My favorite song is {developer.favoriteSong}</p>
+          <p>I'm currently listening to {developer.favoriteSong}</p>
+          <div className="developer-video">
+          <iframe
+          width="560"
+          height="315"
+          src={developer.videoUrl}
+          title={`${developer.name} Favorite Video`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          ></iframe>
+          </div>
         </div>
     )
 }

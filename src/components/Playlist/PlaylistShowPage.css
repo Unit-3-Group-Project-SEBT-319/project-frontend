@@ -55,7 +55,7 @@
 .delete-playlist-btn[title]::after {
   content: attr(title);
   position: absolute;
-  top: -30px; 
+  top: 40px; 
   right: 0;
   background-color: #333;
   color: #fff;
@@ -118,6 +118,10 @@
   object-fit: cover;
 }
 
+.song-artwork:hover {
+  transform: scale(1.05);
+}
+
 .no-songs {
   text-align: center;
   color: #b3b3b3;
@@ -135,4 +139,53 @@
 
 .delete-song-btn:hover {
   color: #cc0000;
+}
+
+.playlist-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.playlist-thumbnail {
+  width: 150px; 
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.playlist-thumbnail:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.image-gallery {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: none; 
+  z-index: 1000;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.image-gallery.active {
+  display: grid; 
+}
+
+.image-gallery img {
+  width: 100px; 
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.image-gallery img:hover {
+  opacity: 0.8;
 }
