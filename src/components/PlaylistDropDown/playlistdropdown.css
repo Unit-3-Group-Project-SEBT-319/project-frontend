@@ -55,3 +55,7 @@
 .submit-btn {
     display: none; 
 }
+
+.addtoplaylist-button{
+    color: var(--orange-highlight)
+}

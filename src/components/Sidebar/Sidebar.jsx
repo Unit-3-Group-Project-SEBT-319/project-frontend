@@ -2,18 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMusic, faPlus } from '@fortawesome/free-solid-svg-icons';
+import UserButton from './UserButton';
 import './Sidebar.css';
 
 const Sidebar = ({ playlists, addNewPlaylist }) => {
   return (
-    <div className="sidebar">
-      <h1>Audify</h1>
+    <div className="sidebar mt-3 ms-3 pb-5">
+      <div className="sidebar-header">
+        <div className="container">
+          <div className="row d-flex">
+            <div className="col-sm">
+              <h1 className="sidebar-title">Audify</h1>
+            </div>
+            <div className="col-sm d-flex justify-content-end usericon">
+              <UserButton />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="sidebar-nav">
         <ul>
           <li className='position-sticky'>
             <Link to="/" className="sidebar-link">
-              <FontAwesomeIcon icon={faHome} />
-              <span>Home</span>
+              <FontAwesomeIcon icon={faHome} className='home-button-sidebar' />
+              <span className='home-text'>Home</span>
             </Link>
           </li>
           <li>

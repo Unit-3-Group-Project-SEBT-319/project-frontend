@@ -48,7 +48,7 @@ const PlaylistDropdown = ({ songId, songData, playlists, onSuccess }) => {
         className="add-to-playlist-btn"
         onClick={() => setIsDropdownVisible((prev) => !prev)}
       >
-        <FontAwesomeIcon icon={faCirclePlus} />
+        <FontAwesomeIcon icon={faCirclePlus} className='addtoplaylist-button' />
       </button>
       {isDropdownVisible && (
         <div className="playlist-dropdown">

@@ -8,7 +8,6 @@ import PlaylistShowPage from './components/Playlist/PlaylistShowPage';
 import CategoryShowPage from './components/Categories/Category/CategoryShowPage';
 import { SongPlayerProvider } from './components/SongPlayer/SongPlayerContext'; 
 import defaultSongImage from '/pictures/defaultsong.png';
-import Developers from './components/Header/Developers';
 import AboutDeveloper from './components/Header/AboutDeveloper';
 
 const defaultSong = {
@@ -46,6 +45,22 @@ const App = () => {
     fetchPlaylists();
   }, []);
 
+  useEffect(() => {
+    const updateNowPlayingHeight = () => {
+      const nowPlayingElement = document.querySelector('.now-playing');
+      if (nowPlayingElement) {
+        const height = nowPlayingElement.offsetHeight;
+        document.documentElement.style.setProperty('--now-playing-height', `${height}px`);
+      }
+    };
+
+    updateNowPlayingHeight();
+    window.addEventListener('resize', updateNowPlayingHeight);
+    return () => {
+      window.removeEventListener('resize', updateNowPlayingHeight);
+    };
+  }, []);
+
   const addNewPlaylist = async () => {
     try {
       const response = await fetch('http://localhost:4000/audify/playlists', {
@@ -79,13 +94,12 @@ const App = () => {
   return (
     <SongPlayerProvider value={songObject}>
       <div className="d-flex flex-column h-100">
-        <Developers />
         <div className="d-flex flex-grow-1">
           <Sidebar
             playlists={playlists}
             addNewPlaylist={addNewPlaylist}
           />
-          <div className="content-container flex-grow-1 pb-5 ps-3 pe-3">
+          <div className="content-container flex-grow-1 ps-3 pe-3 pt-3 pb-2 mb-5">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/category/:genre" element={<CategoryShowPage />} />
