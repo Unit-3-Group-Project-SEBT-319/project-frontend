@@ -1,0 +1,19 @@
+.simplymusic{
+    color: rgb(16, 16, 144);
+    font-weight: 300;
+    font-style:italic;
+    font-weight: 600;
+}
+
+.simplymusic,
+.music {
+    font-size: 10rem; 
+    display: inline-block; 
+    vertical-align: top; 
+}
+
+.music {
+    font-size: 13rem;
+    margin-top: 4rem; 
+    font-weight: 900;
+}

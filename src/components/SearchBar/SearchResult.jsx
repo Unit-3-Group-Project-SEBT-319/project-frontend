@@ -56,12 +56,14 @@ const SearchResult = ({ result }) => {
     };
 
     return (
+        <div>
         <div className="d-flex align-items-center p-2 main-container">
             <img src={result.artworkUrl300 || result.artworkUrl100} alt={result.trackName} className="img-thumbnail" style={{ width: '50px', height: '50px' }} />
             <div className="flex-grow-1 mx-2">
                 <h5 className="mb-0">{result.trackName}</h5>
                 <p className="mb-0 text-secondary artist-name">{result.artistName}</p>
             </div>
+            
             <p className="mb-0 text-muted">{result.primaryGenreName}</p>
             <PlayMusicButton song={songData} />
             <AddToPlayListButton
@@ -72,6 +74,10 @@ const SearchResult = ({ result }) => {
                     console.log('Song added to playlist:', updatedPlaylist);
                 }}
             />
+        </div>
+        {/* <div>
+            <h1>drop down</h1>
+        </div> */}
         </div>
     );
 };
