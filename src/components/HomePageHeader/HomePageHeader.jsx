@@ -1,10 +1,9 @@
 import SearchBarContainer from "../SearchBar/SearchBarContainer";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepageheader.css';
 
 const HomePageHeader = () => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid main-content">
             <div className="row">
                 <div className="col-12">
                     <SearchBarContainer />

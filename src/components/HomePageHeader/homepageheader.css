@@ -1,19 +1,79 @@
-.simplymusic{
+.simplymusic {
     color: rgb(16, 16, 144);
     font-weight: 300;
-    font-style:italic;
+    font-style: italic;
     font-weight: 600;
 }
 
 .simplymusic,
 .music {
-    font-size: 10rem; 
-    display: inline-block; 
-    vertical-align: top; 
+    font-size: 9rem;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .music {
     font-size: 13rem;
-    margin-top: 4rem; 
+    margin-top: 4rem;
     font-weight: 900;
 }
+
+@media (min-width: 1440px) {
+    .simplymusic,
+    .music {
+        font-size: 10rem;
+    }
+
+    .music {
+        font-size: 14rem;
+        margin-top: 4.5rem;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 900px) {
+    .simplymusic,
+    .music {
+        font-size: 8rem;
+    }
+
+    .music {
+        font-size: 13rem;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .simplymusic,
+    .music {
+        font-size: 8rem;
+    }
+
+    .music {
+        font-size: 10rem;
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .simplymusic,
+    .music {
+        font-size: 6rem;
+    }
+
+    .music {
+        font-size: 8rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .simplymusic,
+    .music {
+        font-size: 4rem;
+    }
+
+    .music {
+        font-size: 6rem;
+        margin-top: 1rem;
+    }
+}   

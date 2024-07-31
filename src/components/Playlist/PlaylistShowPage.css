@@ -21,7 +21,8 @@
 }
 
 .playlist-info {
-  flex: 1;
+  max-width: 100%;         
+  overflow: hidden;        
 }
 
 .playlist-title {
@@ -29,6 +30,18 @@
   font-weight: 650;
   margin: 0;
   color: #ffffff;
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis;
+  max-width: 100%;         
+}
+
+.playlist-title,
+.playlist-description-edit {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .inline-edit-wrapper {
@@ -67,7 +80,11 @@
   color: #b3b3b3;
   background-color: transparent;
   border: none;
-  width: 100%;
+  width: 100%;             
+  white-space: nowrap;     
+  overflow: hidden;       
+  text-overflow: ellipsis;
+  max-width: 100%;         
 }
 
 .delete-playlist-container {
