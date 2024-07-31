@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(135deg, #000000, #434343); 
+  /* background: linear-gradient(135deg, #000000, #434343);  */
+  background-color: #1e1e1e;
   color: #ffffff;
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .playlist-header {
@@ -13,7 +15,6 @@
   align-items: center;
   margin-bottom: 20px;
 }
-
 
 .playlist-image-container {
   margin-right: 20px;
@@ -24,24 +25,64 @@
 }
 
 .playlist-title {
-  font-size: 24px;
+  font-size: 5rem;
+  font-weight: 650;
   margin: 0;
   color: #ffffff;
 }
 
-.playlist-description {
-  font-size: 16px;
-  color: #b3b3b3;
+.inline-edit-wrapper {
+  display: inline-block;
+  position: relative;
 }
 
+.inline-edit-wrapper input,
+.inline-edit-wrapper select,
+.inline-edit-wrapper span {
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+}
+
+.inline-edit-wrapper input,
+.inline-edit-wrapper select {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.playlist-title-edit {
+  font-size: 5rem;
+  font-weight: 650;
+  color: #ffffff;
+}
+
+.playlist-description-edit {
+  font-size: 16px;
+  color: #b3b3b3;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+.delete-playlist-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 
 .delete-playlist-btn {
   background: none;
   border: none;
   cursor: pointer;
   color: transparent;
-  font-size: 1.5rem; 
-  margin-top: 10px; 
+  font-size: 1.5rem;
+  margin-top: 10px;
 }
 
 .delete-playlist-btn:hover {
@@ -55,7 +96,7 @@
 .delete-playlist-btn[title]::after {
   content: attr(title);
   position: absolute;
-  top: 40px; 
+  top: 40px;
   right: 0;
   background-color: #333;
   color: #fff;
@@ -82,10 +123,9 @@
 
 .song-grid-header {
   display: grid;
-  grid-template-columns: 50px 1fr 2fr 100px; 
-  gap: 300px;
+  grid-template-columns: 50px 2fr 1fr 1fr 100px;
+  gap: 10px;
   padding: 10px;
-  background-color: #282828;
   color: #b3b3b3;
   font-weight: bold;
   border-bottom: 1px solid #333;
@@ -93,8 +133,8 @@
 
 .song-grid-row {
   display: grid;
-  grid-template-columns: 50px 1fr 2fr 100px; 
-  gap: 5px;
+  grid-template-columns: 50px 2fr 1fr 1fr 100px;
+  gap: 10px;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #333;
@@ -108,6 +148,7 @@
 .song-grid-delete {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -128,7 +169,6 @@
   padding: 20px;
 }
 
-
 .delete-song-btn {
   background: none;
   border: none;
@@ -147,7 +187,7 @@
 }
 
 .playlist-thumbnail {
-  width: 150px; 
+  width: 150px;
   height: 150px;
   border-radius: 8px;
   overflow: hidden;
@@ -156,7 +196,7 @@
 }
 
 .playlist-thumbnail:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
@@ -168,18 +208,18 @@
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  display: none; 
+  display: none;
   z-index: 1000;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
 }
 
 .image-gallery.active {
-  display: grid; 
+  display: grid;
 }
 
 .image-gallery img {
-  width: 100px; 
+  width: 100px;
   height: 100px;
   border-radius: 8px;
   cursor: pointer;

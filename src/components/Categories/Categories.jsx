@@ -1,6 +1,6 @@
 import React from 'react';
 import GenreCard from './CategoryCard/GenreCard';
-import './categories.css'
+import './categories.css';
 
 const Categories = () => {
   const genres = [
@@ -13,14 +13,14 @@ const Categories = () => {
   ];
 
   return (
-    <div className='categories'>
-      {genres.map((genre) => (
-        <GenreCard
-          key={genre.name}
-          genre={genre.name}
-          color={genre.color}
-        />
-      ))}
+    <div className='container'>
+      <div className='row'>
+        {genres.map((genre) => (
+          <div className='col-md-4 mb-4' key={genre.name}>
+            <GenreCard genre={genre.name} color={genre.color} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

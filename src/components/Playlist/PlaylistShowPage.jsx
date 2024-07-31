@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import PlayMusicButton from '../Button/PlayMusicButton';
 import InlineEdit from '../InLineEdit/InLineEdit';
 import './PlaylistShowPage.css';
@@ -12,7 +12,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showGallery, setShowGallery] = useState(false); 
+  const [showGallery, setShowGallery] = useState(false);
 
   const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
@@ -118,7 +118,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
             src={playlist.image}
             alt="Playlist Thumbnail"
             className="playlist-thumbnail"
-            onClick={() => setShowGallery(prev => !prev)} 
+            onClick={() => setShowGallery(prev => !prev)}
           />
           {showGallery && (
             <div className="image-gallery active">
@@ -129,7 +129,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
                   alt={`Thumbnail ${index}`}
                   onClick={() => {
                     handleUpdatePlaylist({ image: img });
-                    setShowGallery(false); 
+                    setShowGallery(false);
                   }}
                 />
               ))}
@@ -164,8 +164,10 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
       </div>
       <div className="song-grid">
         <div className="song-grid-header">
+          <div></div> 
           <div className="song-grid-title">Title</div>
           <div className="song-grid-artist">Artist</div>
+          <div></div> 
         </div>
         {songs.length > 0 ? (
           songs.map((song) => (
@@ -173,6 +175,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
               <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
               <div className="song-grid-title">{song.trackName}</div>
               <div className="song-grid-artist">{song.artistName}</div>
+              <div></div> 
               <div className="song-grid-delete">
                 <PlayMusicButton song={song} />
                 <button className="delete-song-btn" onClick={() => deleteSongFromPlaylist(song._id)}><FontAwesomeIcon icon={faTrash} /></button>
