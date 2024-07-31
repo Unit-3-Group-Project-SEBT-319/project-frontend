@@ -8,27 +8,50 @@
     cursor: pointer;
     font-size: 24px;
     color: #007bff;
+    transition: color 0.3s;
+}
+
+.add-to-playlist-btn:hover {
+    color: #0056b3;
 }
 
 .playlist-dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ccc;
+    right: 20%;
+    background-color: rgb(39, 39, 39);
     padding: 10px;
     z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-item-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0px !important;
+    width: 200px; 
+}
+
+.playlist-item-btn:hover {
+    background-color: #333333;
+    width: 80%;
 }
 
 .playlist-select {
-    margin-bottom: 10px;
-    width: 100%;
+    display: none; 
 }
 
 .submit-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    display: none; 
 }
+
+

@@ -1,7 +1,7 @@
-.add-to-playlist-container {
+/* .add-to-playlist-container {
   position: relative;
   display: inline-block;
-  /* overflow: visible; */
+  overflow: visible;
   border: 1px solid red;
 }
 
@@ -25,7 +25,6 @@
   position: absolute;
   border: 1px solid red;
   top: 100%;
-  /* left: 50%; */
   left: 200px;
   transform: translateX(-50%);
   background-color: black;
@@ -61,4 +60,4 @@
 
 .submit-btn:hover {
   background-color: green;
-}
+} */
