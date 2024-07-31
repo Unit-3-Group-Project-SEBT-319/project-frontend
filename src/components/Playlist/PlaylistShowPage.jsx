@@ -12,6 +12,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showGallery, setShowGallery] = useState(false); 
 
   const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
@@ -23,14 +24,6 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
     'https://i.ibb.co/g4FgTw0/image-2.png',
     'https://i.ibb.co/dGJJpjS/image-1.png'
   ];
-
-  const imageNames = {
-    'https://i.ibb.co/S7brgLp/image.png': 'Orange',
-    'https://i.ibb.co/ZSMp6bh/image-4.png': 'Green',
-    'https://i.ibb.co/KwXvwSv/image-3.png': 'Pink',
-    'https://i.ibb.co/g4FgTw0/image-2.png': 'Red',
-    'https://i.ibb.co/dGJJpjS/image-1.png': 'Blue'
-  };
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -121,14 +114,27 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
     <div className="playlist-show-page">
       <div className="playlist-header">
         <div className="playlist-image-container">
-          <InlineEdit
-            value={playlist.image}
-            onSetValue={(newValue) => handleUpdatePlaylist({ image: newValue })}
-            type="select"
-            options={imageOptions}
-            optionNames={imageNames}
-            className="playlist-thumbnail-edit"
+          <img
+            src={playlist.image}
+            alt="Playlist Thumbnail"
+            className="playlist-thumbnail"
+            onClick={() => setShowGallery(prev => !prev)} 
           />
+          {showGallery && (
+            <div className="image-gallery active">
+              {imageOptions.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Thumbnail ${index}`}
+                  onClick={() => {
+                    handleUpdatePlaylist({ image: img });
+                    setShowGallery(false); 
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
         <div className="playlist-info">
           <h1 className="playlist-title">
@@ -145,16 +151,16 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
               className="playlist-description-edit"
             />
           </p>
-          </div>
-          <div className="delete-playlist-container">
+        </div>
+        <div className="delete-playlist-container">
           <button
             className="delete-playlist-btn"
             onClick={deletePlaylist}
             title="Delete Playlist"
           >
-            <FontAwesomeIcon icon={faCircleXmark} size="lg" style={{color: "#f83a3a",}} />
+            <FontAwesomeIcon icon={faCircleXmark} size="lg" style={{ color: "#f83a3a" }} />
           </button>
-          </div>
+        </div>
       </div>
       <div className="song-grid">
         <div className="song-grid-header">
@@ -177,7 +183,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
           <div className="no-songs">No songs available</div>
         )}
       </div>
-      </div>
+    </div>
   );
 };
 
