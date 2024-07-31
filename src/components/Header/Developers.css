@@ -5,7 +5,7 @@
   display: flex;
   gap: 10px;
   z-index: 1000;
-  display: none;
+  display: absolute;
 }
 
 .developer-headshot-link {
