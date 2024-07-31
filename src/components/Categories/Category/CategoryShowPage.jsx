@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import CategoryThumbnails from './CategoryHeader/CategoryThumbnails';
 import PlaylistDropdown from '../../PlaylistDropDown/PlaylistDropDown';
 import PlayMusicButton from '../../Button/PlayMusicButton';
-import Spinner from '../../SpinLoadingAnimation/Spinner'
+import Spinner from '../../SpinLoadingAnimation/Spinner';
 import './categoryshowpage.css';
 
 const CategoryShowPage = () => {
@@ -11,6 +11,7 @@ const CategoryShowPage = () => {
   const [playlists, setPlaylists] = useState([]);
   const { genre } = useParams();
   const [loading, setLoading] = useState(true);
+  const topRef = useRef(null);
 
   const fetchSongs = async () => {
     try {
@@ -43,10 +44,15 @@ const CategoryShowPage = () => {
   useEffect(() => {
     fetchSongs();
     fetchPlaylists();
+    setTimeout(() => {
+      if (topRef.current) {
+        topRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   }, [genre]);
 
   return (
-    <div className="category-show-page">
+    <div ref={topRef} className="category-show-page">
       <CategoryThumbnails genre={genre} />
       <div className="song-grid">
         <div className="song-grid-header">

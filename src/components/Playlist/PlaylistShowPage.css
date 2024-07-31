@@ -10,6 +10,28 @@
   border-radius: 10px;
 }
 
+.edit-icon-name,
+.edit-icon-description {
+  font-size: 10px;
+  position: absolute;
+  color: white;
+  margin: 5px;
+}
+
+.edit-icon-description {
+  margin-top: -5px;
+}
+
+.edit-icon-name:hover,
+.edit-icon-description:hover {
+  color: var(--orange-highlight);
+  transform: scale(1.2);
+}
+
+.hidden {
+  display: none;
+}
+
 .playlist-header {
   display: flex;
   align-items: center;
@@ -239,7 +261,7 @@
   height: 20px;
   border-radius: 50%;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s; 
 }
 
 .image-gallery img:hover {

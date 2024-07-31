@@ -43,7 +43,10 @@ const Sidebar = ({ playlists, addNewPlaylist }) => {
                 {playlist.image && (
                   <img src={playlist.image} alt={playlist.name} className="playlist-sidebar-image" />
                 )}
-                <span className="playlist-name">{playlist.name}</span>
+                <div className="playlist-text">
+                  <span className="playlist-name">{playlist.name}</span>
+                  <span className='playlist-hardcode'>Playlist</span>
+                </div>
               </Link>
             </li>
           ))}

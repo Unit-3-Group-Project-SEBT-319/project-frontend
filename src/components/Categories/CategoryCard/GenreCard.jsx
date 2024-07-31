@@ -7,8 +7,8 @@ const GenreCard = ({ genre, image }) => {
     <div className='genre-card-container'>
       <Link to={`/category/${genre}`} style={{ textDecoration: 'none' }}>
         <div className='card text-white genre-card'>
-          <div className='card-body d-flex flex-column align-items-center justify-content-center'>
-            <img src={image} alt={genre} className='genreimages mb-2' />
+          <div className='card-body d-flex flex-column align-items-center justify-content-center important-div'>
+            <img src={image} alt={genre} className='genreimages mb-2'/>
             <div className='genre-text'>{genre}</div>
           </div>
         </div>

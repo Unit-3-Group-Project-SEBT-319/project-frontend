@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, forwardRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import './customAudioPlayer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
-const CustomAudioPlayer = ({ url }) => {
-  const [playing, setPlaying] = useState(false);
+const CustomAudioPlayer = forwardRef(({ url, playing, setPlaying }, ref) => {
   const [played, setPlayed] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.8);
@@ -40,6 +39,12 @@ const CustomAudioPlayer = ({ url }) => {
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
+  useEffect(() => {
+    if (ref) {
+      ref.current = playerRef.current;
+    }
+  }, [ref]);
+
   return (
     <div className="custom-audio-player">
       <ReactPlayer
@@ -50,7 +55,7 @@ const CustomAudioPlayer = ({ url }) => {
         onProgress={handleProgress}
         onDuration={handleDuration}
         height="0px"
-        width="0px" 
+        width="0px"
       />
       <div className="controls">
         <FontAwesomeIcon
@@ -86,6 +91,7 @@ const CustomAudioPlayer = ({ url }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CustomAudioPlayer;
+

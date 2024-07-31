@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { SongPlayerContext } from '../SongPlayer/SongPlayerContext';
 import CustomAudioPlayer from './CustomAudioPlayer';
 import './nowplaying.css';
-import defaultSongImage from '/pictures/defaultsong.png'; 
+import defaultSongImage from '/pictures/defaultsong.png';
 
 const defaultSong = {
   trackId: 0,
   trackName: "No song playing",
   artistName: "...",
   artworkUrl100: defaultSongImage,
-  previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/48/8f/a4/488fa4b5-b606-71ee-572e-691f840503c8/mzaf_15586272016916254191.plus.aac.p.m4a"
+  previewUrl: ""
 };
 
 const NowPlaying = () => {
-  const { playingSong } = useContext(SongPlayerContext);
+  const { playingSong, playing, setPlaying, audioRef } = useContext(SongPlayerContext);
 
   const songToDisplay = playingSong || defaultSong;
 
@@ -28,7 +28,7 @@ const NowPlaying = () => {
       </div>
       {songToDisplay.previewUrl && (
         <div className="audio-player-wrapper">
-          <CustomAudioPlayer url={songToDisplay.previewUrl} />
+          <CustomAudioPlayer url={songToDisplay.previewUrl} playing={playing} setPlaying={setPlaying} ref={audioRef} />
         </div>
       )}
     </div>
