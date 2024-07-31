@@ -9,7 +9,7 @@ const defaultSong = {
   trackName: "No song playing",
   artistName: "...",
   artworkUrl100: defaultSongImage,
-  previewUrl: ""
+  previewUrl: "https://music.apple.com/us/artist/rick-astley/669771?uo=4"
 };
 
 const NowPlaying = () => {
