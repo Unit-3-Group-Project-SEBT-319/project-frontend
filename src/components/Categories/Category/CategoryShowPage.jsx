@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CategoryThumbnails from './CategoryHeader/CategoryThumbnails';
-import AddToPlayListButton from '../../Button/AddToPlayListButton';
+import PlaylistDropdown from '../../PlaylistDropDown/PlaylistDropDown';
 import PlayMusicButton from '../../Button/PlayMusicButton';
 import './categoryshowpage.css';
 
@@ -54,13 +54,11 @@ const CategoryShowPage = () => {
             </div>
             <div className="ms-3">{song.collectionName}</div>
             <PlayMusicButton song={song}/>
-            <AddToPlayListButton
+            <PlaylistDropdown
               songId={song.trackId}
               songData={song}
               playlists={playlists}
-              onSuccess={(updatedPlaylist) => {
-                console.log('Song added to playlist:', updatedPlaylist);
-              }}
+              onSuccess={() => console.log('Song added to playlist')}
             />
           </li>
         ))}
