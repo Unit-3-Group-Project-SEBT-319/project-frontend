@@ -1,5 +1,5 @@
 import React from 'react';
-import AddToPlayListButton from '../Button/AddToPlayListButton';
+import PlaylistDropdown from '../PlaylistDropDown/PlaylistDropDown';
 import PlayMusicButton from '../Button/PlayMusicButton';
 import './songitem.css';
 
@@ -18,7 +18,7 @@ const SongItem = ({ songdata, playlists }) => {
             <h5 className='card-title'>{songdata.trackName}</h5>
             <p className='card-text'>{songdata.artistName}</p>
           </div>
-          <AddToPlayListButton
+          <PlaylistDropdown
             songId={songdata.trackId}
             songData={songdata}
             playlists={playlists}

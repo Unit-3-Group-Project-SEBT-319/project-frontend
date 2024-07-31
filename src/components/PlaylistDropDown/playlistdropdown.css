@@ -1,0 +1,34 @@
+.playlist-dropdown-container {
+    position: relative;
+}
+
+.add-to-playlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #007bff;
+}
+
+.playlist-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 10;
+}
+
+.playlist-select {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
