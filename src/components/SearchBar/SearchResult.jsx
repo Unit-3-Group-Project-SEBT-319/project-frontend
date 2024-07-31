@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import AddToPlayListButton from '../Button/AddToPlayListButton';
 import PlayMusicButton from '../Button/PlayMusicButton';
 import "./searchresult.css";
+import PlaylistDropdown from '../PlaylistDropDown/PlaylistDropDown';
 
 const SearchResult = ({ result }) => {
     const [playlists, setPlaylists] = useState([]);
@@ -66,18 +66,15 @@ const SearchResult = ({ result }) => {
             
             <p className="mb-0 text-muted">{result.primaryGenreName}</p>
             <PlayMusicButton song={songData} />
-            <AddToPlayListButton
+            <PlaylistDropdown
                 songId={result.trackId}
                 songData={songData}
                 playlists={playlists}
                 onSuccess={(updatedPlaylist) => {
-                    console.log('Song added to playlist:', updatedPlaylist);
+                console.log('Song added to playlist:', updatedPlaylist);
                 }}
             />
         </div>
-        {/* <div>
-            <h1>drop down</h1>
-        </div> */}
         </div>
     );
 };
