@@ -1,12 +1,19 @@
 import React from 'react';
+import popImage from '/pictures/genres/popicon.jpg';
+import jazzImage from '/public/pictures/genres/jazzicon.jpg';
+import alternativeImage from '/public/pictures/genres/alternativeicon.jpg';
+import metalImage from '/public/pictures/genres/metalicon.jpg';
+import countryImage from '/public/pictures/genres/countryicon.jpg';
+import rockImage from '/public/pictures/genres/rockicon.jpg';
+import './categorythumbnails.css'
 
 const genres = [
-  { name: 'Pop', color: '#ff6666', image: 'https://i.cbc.ca/1.4678126.1527269930!/fileImage/httpImage/image.jpg_gen/derivatives/original_780/shawn-mendes.jpg' },
-  { name: 'Jazz', color: '#ffcc66',  image: 'https://cdn.venngage.com/template/thumbnail/full/fb2a04b9-7536-432e-971b-2aed6aa6ec76.webp' },
-  { name: 'Alternative', color: '#66ff66', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5acccc80032425.5cd5037ad1006.jpg' },
-  { name: 'Metal', color: '#6666ff', image: 'https://www.muddycolors.com/wp-content/uploads/2019/11/Megadeath-1.jpg' },
-  { name: 'Country', color: '#ff66cc', image: 'https://townsquare.media/site/204/files/2023/06/attachment-traveller.jpg?w=780&q=75' },
-  { name: 'Rock', color: '#66ccff', image: 'https://www.billboard.com/wp-content/uploads/2022/03/35.-Metallica-%E2%80%98Master-of-Puppets-1986-album-art-billboard-1240.jpg?w=600' },
+  { name: 'Pop', image: popImage },
+  { name: 'Jazz', image: jazzImage },
+  { name: 'Alternative', image: alternativeImage },
+  { name: 'Metal', image: metalImage },
+  { name: 'Country', image: countryImage },
+  { name: 'Rock', image: rockImage },
 ];
 
 const CategoryThumbnails = ({ genre }) => {
@@ -17,9 +24,13 @@ const CategoryThumbnails = ({ genre }) => {
   }
 
   return (
-    <div style={{ backgroundColor: matchedGenre.color, margin: '10px', padding: '10px', borderRadius: '5px' }}>
-      <img src={matchedGenre.image} alt={matchedGenre.name} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px' }} />
-      <h1>{matchedGenre.name}</h1>
+    <div className="genre-header">
+      <div className="genre-image">
+        <img src={matchedGenre.image} alt={matchedGenre.name} />
+      </div>
+      <div className="genre-name">
+        <h1>{matchedGenre.name}</h1>
+      </div>
     </div>
   );
 };

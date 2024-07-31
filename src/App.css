@@ -1,3 +1,7 @@
+:root {
+  --now-playing-height: 80px;
+}
+
 body {
   margin: 0;
   font-family: 'AudifyFont', sans-serif;
@@ -12,7 +16,6 @@ body {
 
 .sidebar {
   width: 250px;
-  background: linear-gradient(135deg, #000000, #434343);
   color: white;
   padding: 20px;
   display: flex;
@@ -23,8 +26,8 @@ body {
 
 .content-container {
   overflow-y: auto;
-  height: calc(100vh - 60px); 
-  /* background-color: #282828; */
+  padding-bottom: var(--now-playing-height);
+  height: calc(100vh - var(--now-playing-height));
 }
 
 .now-playing {
@@ -37,7 +40,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .nowplaying-info {

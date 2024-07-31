@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root{
+  --orange-highlight: #fe6236; 
+  --orange-opacity: #fe6136c6;
+  --white-color: white;
+  --dark-grey: #171717;
+  --sidebar-color: #212121;
+  --grey-color: #212121;
+  --black-color: #000000;
+}
 
 body, html {
   font-family: 'Poppins', sans-serif;
   font-weight: normal;
   font-size: 1vw;
-  background-color: rgb(23, 23, 23);
+  background-color: black !important;
 }

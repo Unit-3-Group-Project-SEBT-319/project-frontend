@@ -12,7 +12,7 @@ const SongItem = ({ songdata, playlists }) => {
           <PlayMusicButton song={songdata} />
         </div>
       </div>
-      <div className='card-body'>
+      <div className='card-body song-item-cardbody'>
         <div className='song-details'>
           <div>
             <h5 className='card-title'>{songdata.trackName}</h5>

@@ -3,12 +3,14 @@ import { useParams } from 'react-router-dom';
 import CategoryThumbnails from './CategoryHeader/CategoryThumbnails';
 import PlaylistDropdown from '../../PlaylistDropDown/PlaylistDropDown';
 import PlayMusicButton from '../../Button/PlayMusicButton';
+import Spinner from '../../SpinLoadingAnimation/Spinner'
 import './categoryshowpage.css';
 
 const CategoryShowPage = () => {
   const [songs, setSongs] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const { genre } = useParams();
+  const [loading, setLoading] = useState(true);
 
   const fetchSongs = async () => {
     try {
@@ -18,8 +20,10 @@ const CategoryShowPage = () => {
       }
       const data = await response.json();
       setSongs(data.results);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
+      setLoading(false);
     }
   };
 
@@ -42,27 +46,42 @@ const CategoryShowPage = () => {
   }, [genre]);
 
   return (
-    <div className="container">
+    <div className="category-show-page">
       <CategoryThumbnails genre={genre} />
-      <ul className="list-group">
-        {songs.map((song) => (
-          <li key={song.trackId} className="list-group-item d-flex align-items-center">
-            <img src={song.artworkUrl60.replace('60x60', '1000x1000')} alt={song.trackName} className="img-thumbnail" style={{ width: '50px', height: '50px' }} />
-            <div className="flex-grow-1 ms-3">
-              <div className="fw-bold">{song.trackName}</div>
-              <div>{song.artistName}</div>
+      <div className="song-grid">
+        <div className="song-grid-header">
+          <div></div>
+          <div className="song-grid-title">Title</div>
+          <div className="song-grid-artist">Artist</div>
+          <div className="song-grid-album">Album</div>
+          <div className="song-grid-actions"></div>
+        </div>
+        {loading ? (
+          <div className="loading-container">
+            <Spinner />
+          </div>
+        ) : songs.length > 0 ? (
+          songs.map((song) => (
+            <div key={song.trackId} className="song-grid-row">
+              <img src={song.artworkUrl100.replace('100x100', '1000x1000')} alt={song.trackName} className="song-artwork" />
+              <div className="song-grid-title">{song.trackName}</div>
+              <div className="song-grid-artist">{song.artistName}</div>
+              <div className="song-grid-album">{song.collectionName}</div>
+              <div className="song-grid-actions">
+                <PlayMusicButton song={song} />
+                <PlaylistDropdown
+                  songId={song.trackId}
+                  songData={song}
+                  playlists={playlists}
+                  onSuccess={() => console.log('Song added to playlist')}
+                />
+              </div>
             </div>
-            <div className="ms-3">{song.collectionName}</div>
-            <PlayMusicButton song={song}/>
-            <PlaylistDropdown
-              songId={song.trackId}
-              songData={song}
-              playlists={playlists}
-              onSuccess={() => console.log('Song added to playlist')}
-            />
-          </li>
-        ))}
-      </ul>
+          ))
+        ) : (
+          <div className="no-songs">No songs available</div>
+        )}
+      </div>
     </div>
   );
 };

@@ -46,18 +46,18 @@ const ThreeRandomSongs = () => {
   }, []);
 
   return (
-    <div className='container custom-container pt-4'>
-      <div className='d-flex refresh-button justify-content-end mb-3'>
-        <FontAwesomeIcon 
-          icon={faRotate} 
-          onClick={getThreeSongs} 
-          style={{ cursor: 'pointer', fontSize: '18px' }} 
+    <div className='container custom-container pt-5 pb-5'>
+      <div className='d-flex refresh-button justify-content-end'>
+        <FontAwesomeIcon
+          icon={faRotate}
+          onClick={getThreeSongs}
+          style={{ cursor: 'pointer', fontSize: '25px' }}
         />
       </div>
       <div className='row'>
         {threeSongs.length > 0 ? (
-          threeSongs.map((song) => 
-            <div className='col-md-4 mb-4' key={song.trackId}>
+          threeSongs.map((song) =>
+            <div className='col-md-4' key={song.trackId}>
               <SongItem songdata={song} playlists={playlists} />
             </div>
           )
