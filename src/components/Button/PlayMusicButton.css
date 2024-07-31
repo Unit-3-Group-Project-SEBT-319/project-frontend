@@ -1,5 +1,6 @@
 .play-music-button {
     background-color: transparent;
+    color: grey;
     border: none;
     cursor: pointer;
     padding: 10px;
@@ -11,7 +12,7 @@
   }
   
   .play-music-button:hover {
-    color: red;
+    color: var(--orange-highlight);
   }
   
   .play-music-button .fa-play {

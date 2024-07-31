@@ -2,6 +2,8 @@
     background-color: var(--dark-grey);
     border-radius: 10px;
     overflow: hidden; 
+    background: rgb(0,0,0);
+    background: linear-gradient(52deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 50%);
 }
 
 .main-body::after {
@@ -16,6 +18,17 @@
     left: 0;
     right: 0;
     z-index: -1;
+}
+
+.recommended-songs{
+  color: white;
+  font-size: 1.5rem;
+}
+
+.genres-title{
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: -10px;
 }
 
 /* Extra small devices (phones, 600px and down) */

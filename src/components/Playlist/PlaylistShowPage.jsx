@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCircleXmark, faPen, faX } from '@fortawesome/free-solid-svg-icons';
 import PlayMusicButton from '../Button/PlayMusicButton';
 import InlineEdit from '../InLineEdit/InLineEdit';
 import './PlaylistShowPage.css';
@@ -13,6 +13,8 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showGallery, setShowGallery] = useState(false);
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [isEditingDescription, setIsEditingDescription] = useState(false);
 
   const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
   const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
@@ -138,18 +140,48 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
         </div>
         <div className="playlist-info">
           <h1 className="playlist-title">
-            <InlineEdit
-              value={playlist.name}
-              onSetValue={(newValue) => handleUpdatePlaylist({ name: newValue })}
-              className="playlist-title-edit"
-            />
+            {isEditingName ? (
+              <InlineEdit
+                value={playlist.name}
+                onSetValue={(newValue) => {
+                  handleUpdatePlaylist({ name: newValue });
+                  setIsEditingName(false);
+                }}
+                onCancel={() => setIsEditingName(false)}
+                className="playlist-title-edit"
+              />
+            ) : (
+              <>
+                <span>{playlist.name}</span>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className={`edit-icon-name ${isEditingName ? 'hidden' : ''}`}
+                  onClick={() => setIsEditingName(true)}
+                />
+              </>
+            )}
           </h1>
           <p className="playlist-description">
-            <InlineEdit
-              value={playlist.description}
-              onSetValue={(newValue) => handleUpdatePlaylist({ description: newValue })}
-              className="playlist-description-edit"
-            />
+            {isEditingDescription ? (
+              <InlineEdit
+                value={playlist.description}
+                onSetValue={(newValue) => {
+                  handleUpdatePlaylist({ description: newValue });
+                  setIsEditingDescription(false);
+                }}
+                onCancel={() => setIsEditingDescription(false)}
+                className="playlist-description-edit"
+              />
+            ) : (
+              <>
+                <span>{playlist.description}</span>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className={`edit-icon-description ${isEditingDescription ? 'hidden' : ''}`}
+                  onClick={() => setIsEditingDescription(true)}
+                />
+              </>
+            )}
           </p>
         </div>
         <div className="delete-playlist-container">
@@ -158,7 +190,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
             onClick={deletePlaylist}
             title="Delete Playlist"
           >
-            <FontAwesomeIcon icon={faCircleXmark} size="lg" style={{ color: "#f83a3a" }} />
+            <FontAwesomeIcon icon={faX} size="lg" style={{ color: "red" }} />
           </button>
         </div>
       </div>
