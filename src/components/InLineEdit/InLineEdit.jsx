@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionNames = {} }) => {
+const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionNames = {}, className = '' }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [inputValue, setInputValue] = useState(value);
 
@@ -35,7 +35,7 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionName
   };
 
   return (
-    <div>
+    <span className={`inline-edit-wrapper ${className}`}>
       {isEditing ? (
         type === 'select' ? (
           <select
@@ -44,6 +44,7 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionName
             onBlur={handleBlur}
             autoFocus
             style={{ color: 'white' }}
+            className={className}
           >
             {options.map((option, index) => (
               <option key={index} value={option}>
@@ -59,11 +60,11 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionName
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
             autoFocus
-            style={{ color: 'white', backgroundColor: 'transparent' }}
+            className={className}
           />
         )
       ) : (
-        <span onClick={() => setIsEditing(true)}>
+        <span onClick={() => setIsEditing(true)} className={className}>
           {type === 'select' ? (
             <img
               src={value}
@@ -77,7 +78,7 @@ const InlineEdit = ({ value, onSetValue, type = 'text', options = [], optionName
           )}
         </span>
       )}
-    </div>
+    </span>
   );
 };
 
