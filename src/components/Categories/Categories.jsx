@@ -23,7 +23,7 @@ const Categories = () => {
     <div className='container'>
       <div className='row'>
         {genres.map((genre) => (
-          <div className='col-md-4 mb-4' key={genre.name}>
+          <div className='col-lg-4 col-md-6 col-6 mb-4' key={genre.name}>
             <GenreCard genre={genre.name} image={genre.image} />
           </div>
         ))}
