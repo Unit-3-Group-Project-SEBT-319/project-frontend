@@ -57,7 +57,7 @@ const ThreeRandomSongs = () => {
       <div className='row'>
         {threeSongs.length > 0 ? (
           threeSongs.map((song) =>
-            <div className='col-md-4' key={song.trackId}>
+            <div className='col-md-4 col-sm-6 col-12' key={song.trackId}>
               <SongItem songdata={song} playlists={playlists} />
             </div>
           )
