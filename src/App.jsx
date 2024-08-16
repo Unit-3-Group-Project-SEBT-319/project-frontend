@@ -93,7 +93,7 @@ const App = () => {
 
   return (
     <SongPlayerProvider value={songObject}>
-      <div className="d-flex flex-column h-100">
+      <div className="d-flex flex-column h-100 main">
         <div className="d-flex flex-grow-1">
           <Sidebar
             playlists={playlists}

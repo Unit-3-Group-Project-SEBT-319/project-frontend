@@ -15,4 +15,6 @@ body, html {
   font-weight: normal;
   font-size: 1vw;
   background-color: black !important;
+  max-width: 2000px;
+  margin: 0 auto;
 }
