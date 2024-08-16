@@ -43,4 +43,4 @@ Features
   
 **Repository:** https://github.com/Unit-3-Group-Project-SEBT-319/
 
-**Deployed Page:** https://profound-blini-e0ef39.netlify.app/
+**Deployed Page:** https://project-audify.netlify.app/
