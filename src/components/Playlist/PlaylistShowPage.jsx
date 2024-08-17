@@ -30,7 +30,8 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        const response = await fetch(URL_PLAYLIST);
+        // const response = await fetch(URL_PLAYLIST);
+        const response = await fetch(`https://project-backend-15k1.onrender.com/audify/playlists/${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -45,7 +46,8 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 
     const fetchSongs = async () => {
       try {
-        const response = await fetch(URL_SONGS);
+        // const response = await fetch(URL_SONGS);
+        const response = await fetch(`https://project-backend-15k1.onrender.com/audify/playlists/${id}/songs`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
