@@ -10,7 +10,7 @@ const SearchBar = ({ setFetchedSearchTerm }) => {
 
     if (newSearchTerm.trim() !== "") {
       try {
-        const response = await fetch(`http://localhost:4000/audify/search/songs?q=${encodeURIComponent(newSearchTerm)}`);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/audify/search/songs?q=${encodeURIComponent(newSearchTerm)}`);
         if (!response.ok) {
           if (response.status === 404) {
             console.log('No songs found for the query.');

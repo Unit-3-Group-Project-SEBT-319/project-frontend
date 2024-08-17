@@ -8,8 +8,8 @@ const ThreeRandomSongs = () => {
   const [threeSongs, setThreeSongs] = useState([]);
   const [playlists, setPlaylists] = useState([]);
 
-  const threeRandomSongsUrl = `${process.env.REACT_APP_BACKEND_URL}/audify/search/randomsongs`;
-  const playlistsUrl = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists`;
+  const threeRandomSongsUrl = `${import.meta.env.VITE_BACKEND_URL}/audify/search/randomsongs`;
+  const playlistsUrl = `${import.meta.env.VITE_BACKEND_URL}/audify/playlists`;
 
   const getThreeSongs = async () => {
     try {

@@ -9,7 +9,7 @@ const SearchResult = ({ result }) => {
     useEffect(() => {
         const fetchPlaylists = async () => {
             try {
-                const response = await fetch('http://localhost:4000/audify/playlists');
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/audify/playlists`);
                 const data = await response.json();
                 setPlaylists(data.data);
             } catch (error) {

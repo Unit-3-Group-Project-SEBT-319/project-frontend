@@ -16,8 +16,8 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingDescription, setIsEditingDescription] = useState(false);
 
-  const URL_PLAYLIST = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}`;
-  const URL_SONGS = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}/songs`;
+  const URL_PLAYLIST = `${import.meta.env.VITE_BACKEND_URL}/audify/playlists/${id}`;
+  const URL_SONGS = `${import.meta.env.VITE_BACKEND_URL}/audify/playlists/${id}/songs`;
 
   const imageOptions = [
     'https://i.ibb.co/S7brgLp/image.png',
@@ -30,8 +30,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        // const response = await fetch(URL_PLAYLIST);
-        const response = await fetch(`https://project-backend-15k1.onrender.com/audify/playlists/${id}`);
+        const response = await fetch(URL_PLAYLIST);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -46,8 +45,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 
     const fetchSongs = async () => {
       try {
-        // const response = await fetch(URL_SONGS);
-        const response = await fetch(`https://project-backend-15k1.onrender.com/audify/playlists/${id}/songs`);
+        const response = await fetch(URL_SONGS);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -81,7 +79,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 
   const deleteSongFromPlaylist = async (songId) => {
     try {
-      const deleteURL = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}/remove-song/${songId}`;
+      const deleteURL = `${import.meta.env.VITE_BACKEND_URL}/audify/playlists/${id}/remove-song/${songId}`;
       await fetch(deleteURL, {
         method: 'DELETE',
       });
@@ -225,5 +223,3 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 };
 
 export default PlaylistShowPage;
-
-console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL)
