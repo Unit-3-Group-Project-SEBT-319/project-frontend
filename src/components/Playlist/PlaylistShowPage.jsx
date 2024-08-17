@@ -223,3 +223,5 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 };
 
 export default PlaylistShowPage;
+
+console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL)
