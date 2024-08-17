@@ -16,8 +16,8 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingDescription, setIsEditingDescription] = useState(false);
 
-  const URL_PLAYLIST = `http://localhost:4000/audify/playlists/${id}`;
-  const URL_SONGS = `http://localhost:4000/audify/playlists/${id}/songs`;
+  const URL_PLAYLIST = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}`;
+  const URL_SONGS = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}/songs`;
 
   const imageOptions = [
     'https://i.ibb.co/S7brgLp/image.png',
@@ -79,7 +79,7 @@ const PlaylistShowPage = ({ playlists, updatePlaylist }) => {
 
   const deleteSongFromPlaylist = async (songId) => {
     try {
-      const deleteURL = `http://localhost:4000/audify/playlists/${id}/remove-song/${songId}`;
+      const deleteURL = `${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${id}/remove-song/${songId}`;
       await fetch(deleteURL, {
         method: 'DELETE',
       });

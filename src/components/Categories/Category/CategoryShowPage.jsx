@@ -15,7 +15,7 @@ const CategoryShowPage = () => {
 
   const fetchSongs = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/audify/search/genres?q=${encodeURIComponent(genre)}`);
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/audify/search/genres?q=${encodeURIComponent(genre)}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -30,7 +30,7 @@ const CategoryShowPage = () => {
 
   const fetchPlaylists = async () => {
     try {
-      const response = await fetch('http://localhost:4000/audify/playlists');
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/audify/playlists`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

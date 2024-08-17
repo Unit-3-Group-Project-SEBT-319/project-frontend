@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     const fetchPlaylists = async () => {
       try {
-        const response = await fetch('http://localhost:4000/audify/playlists');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/audify/playlists`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -63,7 +63,7 @@ const App = () => {
 
   const addNewPlaylist = async () => {
     try {
-      const response = await fetch('http://localhost:4000/audify/playlists', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/audify/playlists`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
