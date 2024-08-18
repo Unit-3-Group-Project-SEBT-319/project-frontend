@@ -9,17 +9,43 @@
     align-items: center;
     border-radius: 5px;
     margin-bottom: 100px !important;
+    padding-top: 40px;
+    padding-right: 20px;
 }
 
 .refresh-button {
     color: var(--orange-highlight);
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 10px;
+    right: 10px;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .refresh-button:hover {
     transform: scale(1.1);
 }
 
+@media (max-width: 10424px) {
+    .refresh-button {
+        top: 1px;
+        right: 1px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .refresh-button {
+        top: -7px;
+        right: 5px;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .refresh-button {
+        top: 3px;
+        right: 3px;
+        font-size: 18px;
+    }
+}
