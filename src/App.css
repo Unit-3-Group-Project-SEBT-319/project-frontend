@@ -29,25 +29,3 @@ body {
   padding-bottom: var(--now-playing-height);
   height: calc(100vh - var(--now-playing-height));
 }
-
-@media (max-width: 484px) {
-
-
-  .sidebar{
-    display: none !important;
-    position: absolute;
-    z-index: 99;
-    width: 200px !important;
-    border-right: 3px solid var(--black-color);
-    margin: 0px !important;
-    border-radius: 0px !important;
-  }
-
-  .sidebar.mt-3, 
-  .sidebar.m-3, 
-  .sidebar.pb-5 {
-    margin-top: 0px !important;
-    margin-left: 0px !important;
-    padding-bottom: 0px !important;
-  }
-}

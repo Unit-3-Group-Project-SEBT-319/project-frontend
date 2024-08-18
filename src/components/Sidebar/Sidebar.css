@@ -206,32 +206,43 @@
   flex: 1;
 }
 
-@media (max-width: 1200px) {
-  .main-content {
-    margin-left: 250px;
+@media (max-width: 484px) {
+  .sidebar {
+    width: 100px !important;
+    min-width: 100px !important; 
+    max-width: 100px !important; 
+    height: 74vh !important;
   }
-}
-
-@media (max-width: 900px) {
-  .main-content {
-    margin-left: 200px;
+  .home-text,
+  .library-text,
+  .playlist-name,
+  .playlist-hardcode,
+  .library-icon {
+    display: none;
   }
-}
 
-@media (max-width: 600px) {
-  .main-content {
-    margin-left: 150px;
+  .sidebar-title{
+    font-size: 2rem !important;
+    text-align: center;
   }
-}
 
-@media (max-width: 400px) {
-  .main-content {
-    margin-left: 100px;
+  .sidebar .row .justify-content-end {
+    justify-content: center !important;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .row {
-    flex-wrap: nowrap !important;
+  .sidebar-link {
+    justify-content: center;
+  }
+
+  .library-section {
+    justify-content: center;
+  }
+
+  .playlist-text {
+    display: none;
+  }
+
+  .playlist-sidebar-image {
+    margin: 0 auto;
   }
 }
