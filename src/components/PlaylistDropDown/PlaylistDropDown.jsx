@@ -19,7 +19,7 @@ const PlaylistDropdown = ({ songId, songData, playlists, onSuccess }) => {
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/audify/playlists/${playlistId}/add-song`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/audify/playlists/${playlistId}/add-song`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
