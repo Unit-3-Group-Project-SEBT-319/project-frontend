@@ -1,88 +1,114 @@
-.top-div{
-    border-radius: 20px !important; 
+.header-logo {
+    margin-top: 20px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding-bottom: 100px;
+    position: relative;
 }
 
-.header-logo{
-    margin-top: 50px !important; 
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    justify-content: center;
 }
 
-.simplymusic {
+.simply {
+    font-size: 20rem;
+    overflow: visible;
+    z-index: 5;
+    font-weight: 700; 
     color: var(--orange-highlight);
-    font-weight: 300;
-    font-style: italic;
-    font-weight: 600;
-}
-
-.simplymusic,
-.music {
-    font-size: 9rem;
-    display: inline-block;
-    vertical-align: top;
+    line-height: 1.1;
+    text-shadow: 10px 0 15px rgba(0, 0, 0, 0.5); 
 }
 
 .music {
-    font-size: 13rem;
-    margin-top: 4rem;
+    font-size: 11rem;
     font-weight: 900;
-    color: rgb(255, 255, 255);
+    color: var(--orange-highlight);
+    margin-top: -1rem; 
+    line-height: 1.1;
+    letter-spacing: -2px; 
+    text-shadow: 10px 0 15px rgba(0, 0, 0, 0.5); 
+    z-index: 1;
 }
 
-@media (min-width: 1440px) {
-    .simplymusic,
-    .music {
-        font-size: 10rem;
-    }
-
-    .music {
-        font-size: 14rem;
-        margin-top: 4.5rem;
-    }
-}
-
-@media (max-width: 1440px) and (min-width: 900px) {
-    .simplymusic,
-    .music {
-        font-size: 8rem;
-    }
-
-    .music {
-        font-size: 13rem;
-        margin-top: 4rem;
-    }
+.header-image {
+    position: absolute;
+    top: 90%;
+    left: 70%; 
+    transform: translate(-50%, -50%);
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+    z-index: 0;
 }
 
 @media (max-width: 900px) {
-    .simplymusic,
-    .music {
+    .header-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 0px;
+        position: static;
+    }
+
+    .pic-div{
+        height: 100px;
+    }
+
+    .logo {
+        align-items: center;
+        padding-left: 0;
+        padding-bottom: 20px;
+    }
+
+    .simply {
         font-size: 8rem;
     }
 
     .music {
-        font-size: 10rem;
-        margin-top: 3rem;
+        font-size: 7rem;
+        margin-top: 0.5rem;
+    }
+
+    .header-image {
+        position: static; 
+        max-width: 60%;
+        transform: none;
     }
 }
 
 @media (max-width: 600px) {
-    .simplymusic,
-    .music {
+    .simply {
         font-size: 6rem;
     }
 
     .music {
-        font-size: 8rem;
-        margin-top: 2rem;
+        font-size: 5rem;
+    }
+
+    .header-image {
+        max-width: 50%;
     }
 }
 
 @media (max-width: 400px) {
-    .simplymusic,
-    .music {
+    .simply {
         font-size: 4rem;
     }
 
     .music {
-        font-size: 6rem;
-        margin-top: 1rem;
+        font-size: 3rem;
     }
-}   
+
+    .header-image {
+        max-width: 40%;
+    }
+}
